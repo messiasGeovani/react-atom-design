@@ -1,5 +1,5 @@
-function setFontWeight({ strong, bold }) {
-  if (strong) {
+function setFontWeight({ semibold, bold }) {
+  if (semibold) {
     return 500;
   }
 
@@ -10,16 +10,8 @@ function setFontWeight({ strong, bold }) {
   return 400;
 }
 
-export const fontConfig = ({
-  strong,
-  bold,
-  disabled,
-  clickable,
-  danger,
-  textAlign,
-}) => ({
-  fontWeight: setFontWeight({ strong, bold }),
-  color: disabled ? "lightgray" : danger && "darkred",
+export const fontConfig = ({ semibold, bold, clickable, textAlign }) => ({
+  fontWeight: setFontWeight({ semibold, bold }),
   cursor: clickable && "pointer",
   textAlign,
 });

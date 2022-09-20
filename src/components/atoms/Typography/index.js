@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BaseText } from "../../Base";
 
 export const Typography = styled(BaseText)`
-  font-size: 14px;
+  font-size: ${({ size }) => size || 14}px;
 `;
 
 export const Label = styled(Typography).attrs({

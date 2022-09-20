@@ -1,4 +1,6 @@
 import React from "react";
+import { useAuth } from "../../../../context/Auth";
+import { AnimatedDiv } from "../../../Animated";
 
 import {
   GoogleIcon,
@@ -16,13 +18,9 @@ import { Hidden } from "../../../Helpers";
 
 import { FormWrapper, Separator } from "./styles";
 
-export function AuthForm({
-  isRegister,
-  fields,
-  setFields,
-  alternateForm,
-  handleSubmit,
-}) {
+export function AuthForm({ isRegister, alternateForm, handleSubmit }) {
+  const { fields, setFields } = useAuth();
+
   const texts = {
     title: isRegister ? "Registre-se" : "Login",
     googleButton: isRegister
@@ -47,70 +45,133 @@ export function AuthForm({
       console.log(target.checked);
     };
 
-  const RememberLoginOption = () =>
-    !isRegister && (
-      <BaseSpan
-        flex
-        alignItems="center"
-        justifyContent="space-between"
-        mt={1}
-        mb={1}
-      >
-        <span>
-          <PrimaryCheckBox
-            id="rememberPassword"
-            checked={fields.rememberLogin}
-            onChange={handleCheckField("rememberLogin")}
-          />
-          <Label strong htmlFor="rememberPassword">
-            Lembrar-me &nbsp;
-          </Label>
-        </span>
+  const ConfirmPasswordInput = isRegister && (
+    <AnimatedDiv
+      duration={0.6}
+      animation="fadeInRight"
+      fillMode="backwards"
+      fullWidth
+    >
+      <Typography semibold mt={1}>
+        Confirmar senha*
+      </Typography>
+      <Input
+        required
+        type="password"
+        placeholder="Min. 8 caracteres"
+        fullWidth
+        value={fields.confirmPassword}
+        onChange={handleChangeField("confirmPassword")}
+      />
+    </AnimatedDiv>
+  );
 
-        <Typography color="primary" bold clickable>
-          Esqueceu a senha?
-        </Typography>
-      </BaseSpan>
-    );
-
-  const AcceptTermsOption = () =>
-    isRegister && (
-      <BaseSpan flex alignItems="center" mt={1} mb={1}>
+  const RememberLoginOption = !isRegister && (
+    <AnimatedDiv
+      flex
+      alignItems="center"
+      justifyContent="space-between"
+      mt={1}
+      mb={1}
+      duration={0.6}
+      animation="fadeInRight"
+      fillMode="backwards"
+    >
+      <span>
         <PrimaryCheckBox
-          required
-          id="acceptTerms"
-          checked={fields.acceptTerms}
-          onChange={handleCheckField("acceptTerms")}
+          id="rememberPassword"
+          checked={fields.rememberLogin}
+          onChange={handleCheckField("rememberLogin")}
         />
-        <Label strong htmlFor="acceptTerms">
-          Eu aceito os &nbsp;
+        <Label semibold htmlFor="rememberPassword">
+          Lembrar-me &nbsp;
         </Label>
-        <Label color="primary" htmlFor="acceptTerms" bold clickable>
-          Termos e condições
-        </Label>
-      </BaseSpan>
-    );
+      </span>
+
+      <Typography color="primary" bold clickable>
+        Esqueceu a senha?
+      </Typography>
+    </AnimatedDiv>
+  );
+
+  const AcceptTermsOption = isRegister && (
+    <AnimatedDiv
+      flex
+      alignItems="center"
+      mt={1}
+      mb={1}
+      duration={0.5}
+      animation="fadeInRight"
+      fillMode="backwards"
+    >
+      <PrimaryCheckBox
+        required
+        id="acceptTerms"
+        checked={fields.acceptTerms}
+        onChange={handleCheckField("acceptTerms")}
+      />
+      <Label semibold htmlFor="acceptTerms">
+        Eu aceito os &nbsp;
+      </Label>
+      <Label color="primary" htmlFor="acceptTerms" bold clickable>
+        Termos e condições
+      </Label>
+    </AnimatedDiv>
+  );
 
   return (
     <FormWrapper flex onSubmit={handleSubmit}>
       <Hidden>
-        <ThunderIcon size={50} color="primary" />
+        <AnimatedDiv
+          duration={1.1}
+          animation="fadeInRight"
+          fillMode="backwards"
+        >
+          <ThunderIcon size={50} color="primary" />
+        </AnimatedDiv>
       </Hidden>
-      <Title mb={1}>{texts.title}</Title>
-      <Typography strong mb={1}>
-        Qui aliquip enim dolore pariatur dolor ad.
-      </Typography>
-      <OutlinedButton fullWidth>
-        <BaseSpan flex alignItems="center" justifyContent="center">
-          <GoogleIcon size={20} mr={1} />
-          {texts.googleButton}
-        </BaseSpan>
-      </OutlinedButton>
-      <Separator flex alignItems="center" justifyContent="center" mt={1}>
+      <AnimatedDiv
+        fullWidth
+        duration={1}
+        animation="fadeInRight"
+        fillMode="backwards"
+      >
+        <Title mb={1}>{texts.title}</Title>
+        <Typography semibold mb={1}>
+          Qui aliquip enim dolore pariatur dolor ad.
+        </Typography>
+      </AnimatedDiv>
+      <AnimatedDiv
+        fullWidth
+        duration={0.9}
+        animation="fadeInRight"
+        fillMode="backwards"
+      >
+        <OutlinedButton fullWidth>
+          <BaseSpan flex alignItems="center" justifyContent="center">
+            <GoogleIcon size={20} mr={1} />
+            {texts.googleButton}
+          </BaseSpan>
+        </OutlinedButton>
+      </AnimatedDiv>
+      <Separator
+        flex
+        alignItems="center"
+        justifyContent="center"
+        mt={1}
+        duration={0.9}
+        animation="fadeInRight"
+        fillMode="backwards"
+      >
         Ou logar com Email
       </Separator>
-      <BaseSpan fullWidth>
-        <Typography strong mt={1}>
+      <AnimatedDiv
+        duration={0.8}
+        animation="fadeInRight"
+        fillMode="backwards"
+        fullWidth
+      >
+        <Typography semibold mt={1}>
           Email*
         </Typography>
         <Input
@@ -120,9 +181,14 @@ export function AuthForm({
           value={fields.email}
           onChange={handleChangeField("email")}
         />
-      </BaseSpan>
-      <BaseSpan fullWidth>
-        <Typography strong mt={1}>
+      </AnimatedDiv>
+      <AnimatedDiv
+        duration={0.7}
+        animation="fadeInRight"
+        fillMode="backwards"
+        fullWidth
+      >
+        <Typography semibold mt={1}>
           Senha*
         </Typography>
         <Input
@@ -133,33 +199,33 @@ export function AuthForm({
           value={fields.password}
           onChange={handleChangeField("password")}
         />
-      </BaseSpan>
-      {isRegister && (
-        <BaseSpan fullWidth>
-          <Typography strong mt={1}>
-            Confirmar senha*
-          </Typography>
-          <Input
-            required
-            type="password"
-            placeholder="Min. 8 caracteres"
-            fullWidth
-            value={fields.confirmPassword}
-            onChange={handleChangeField("confirmPassword")}
-          />
-        </BaseSpan>
-      )}
-      <RememberLoginOption />
-      <AcceptTermsOption />
-      <PrimaryButton type="submit" fullWidth>
-        {texts.submitButton}
-      </PrimaryButton>
-      <BaseSpan flex alignItems="center" mt={1}>
-        <Typography strong>{texts.alternateAuthType[0]} &nbsp;</Typography>
+      </AnimatedDiv>
+      {ConfirmPasswordInput}
+      {RememberLoginOption}
+      {AcceptTermsOption}
+      <AnimatedDiv
+        fullWidth
+        duration={isRegister ? 0.5 : 0.6}
+        animation="fadeInRight"
+        fillMode="backwards"
+      >
+        <PrimaryButton type="submit" fullWidth>
+          {texts.submitButton}
+        </PrimaryButton>
+      </AnimatedDiv>
+      <AnimatedDiv
+        flex
+        alignItems="center"
+        mt={1}
+        duration={isRegister ? 0.4 : 0.5}
+        animation="fadeInRight"
+        fillMode="backwards"
+      >
+        <Typography semibold>{texts.alternateAuthType[0]} &nbsp;</Typography>
         <Typography color="primary" bold clickable onClick={alternateForm}>
           {texts.alternateAuthType[1]}
         </Typography>
-      </BaseSpan>
+      </AnimatedDiv>
     </FormWrapper>
   );
 }

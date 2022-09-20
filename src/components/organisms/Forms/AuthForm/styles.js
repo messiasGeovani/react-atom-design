@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 
 import { respondTo } from "../../../../utils";
-import { BaseDiv, BaseForm } from "../../../Base";
+import { AnimatedDiv } from "../../../Animated";
+import { BaseForm } from "../../../Base";
 
 export const FormWrapper = styled(BaseForm)`
   width: 50%;
@@ -18,7 +19,7 @@ const separatorLine = css`
   background: lightgray;
 `;
 
-export const Separator = styled(BaseDiv)`
+export const Separator = styled(AnimatedDiv)`
   color: lightgray;
   font-size: 12px;
 

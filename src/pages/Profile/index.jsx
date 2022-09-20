@@ -6,7 +6,12 @@ import { Background, Box } from "./styles";
 export default function Profile() {
   return (
     <Background flex alignItems="center" justifyContent="center">
-      <Box>
+      <Box
+        duration={0.5}
+        animation="fadeInZoomIn"
+        fillMode="backwards"
+        padding={5}
+      >
         <UserForm />
       </Box>
     </Background>

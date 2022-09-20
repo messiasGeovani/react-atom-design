@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import { BaseDiv } from "../../components/Base";
+import { AnimatedDiv } from '../../components/Animated'
 
 export const Background = styled(BaseDiv)`
   height: 100%;
@@ -7,7 +9,6 @@ export const Background = styled(BaseDiv)`
   background: var(--tertiary);
 `;
 
-export const Box = styled(BaseDiv)`
+export const Box = styled(AnimatedDiv)`
   background: white;
-  padding: 30px;
 `;

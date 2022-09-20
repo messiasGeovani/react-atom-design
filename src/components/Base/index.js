@@ -29,3 +29,5 @@ export const BaseText = styled.p(textAttrs);
 export const BaseButton = styled.button(defaultAttrs);
 
 export const BaseForm = styled.form.attrs(flexAttrs)``;
+
+export const BaseImg = styled.img(defaultAttrs);

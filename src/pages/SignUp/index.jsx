@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
+import { AnimatedDiv } from "../../components/Animated";
 import { BaseDiv } from "../../components/Base";
 import { AuthForm } from "../../components/organisms/Forms/AuthForm";
 import { Background, LoginBanner, WhiteBox } from "./styles";
@@ -7,17 +8,12 @@ import { Background, LoginBanner, WhiteBox } from "./styles";
 export default function SignUp() {
   const history = useHistory();
 
-  const [fields, setFields] = useState({
-    login: "",
-    confirmPassword: "",
-    password: "",
-    acceptTerms: false,
-  });
-
   const redirectToLogin = () => history.goBack();
-
-  const handleSignUp = () =>
-    history.push({ pathname: "/profile", state: fields });
+  
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    history.push("/profile");
+  };
 
   return (
     <Background>
@@ -37,22 +33,23 @@ export default function SignUp() {
         >
           <AuthForm
             isRegister
-            fields={fields}
-            setFields={setFields}
             alternateForm={redirectToLogin}
             handleSubmit={handleSignUp}
           />
         </WhiteBox>
         <WhiteBox fullWidth fullHeight>
-          <BaseDiv
+          <AnimatedDiv
             flex
             alignItems="center"
             justifyContent="center"
             fullWidth
             fullHeight
+            duration={0.8}
+            animation="fadeInZoomIn"
+            fillMode="backwards"
           >
             <LoginBanner />
-          </BaseDiv>
+          </AnimatedDiv>
         </WhiteBox>
       </BaseDiv>
     </Background>
