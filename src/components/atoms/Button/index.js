@@ -1,7 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { respondTo } from "../../../utils/medias";
 import { BaseButton } from "../../Base";
+
+const disabledButtonAttrs = ({ disabled }) => css`
+  transition: ${disabled && "none"} !important;
+  background: ${disabled && "gray"} !important;
+  cursor: ${disabled && "initial"} !important;
+`;
 
 const Button = styled(BaseButton)`
   height: 50px;
@@ -14,6 +20,8 @@ const Button = styled(BaseButton)`
   ${respondTo.md`
     height: 40px;
   `}
+
+  ${disabledButtonAttrs}
 `;
 
 const RippleButton = styled(Button)`

@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import * as Animations from "../../styles/Animations";
+import { Box } from "../atoms";
 import { BaseDiv, BaseSpan } from "../Base";
 
 function setAnimation(animation) {
@@ -25,5 +26,9 @@ export const AnimatedDiv = styled(BaseDiv)`
 `;
 
 export const AnimatedSpan = styled(BaseSpan)`
+  ${animationAttrs}
+`;
+
+export const AnimatedBox = styled(Box)`
   ${animationAttrs}
 `;

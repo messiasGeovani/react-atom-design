@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+
 import { useAuth } from "../../../../context/Auth";
+
 import { AnimatedDiv } from "../../../Animated";
 import { Input, Separator, SuccessButton, Typography } from "../../../atoms";
 import { BaseDiv, BaseForm, BaseSpan } from "../../../Base";
+import { ImageEditor } from "../../ImageEditor";
 
-import { ProfileImgWrapper, ProfileImg, EditIcon } from "./styles";
+import { Modal } from "../../Modal";
+
+import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
 
 export function UserForm() {
+  const [openModal, setOpenModal] = useState(false);
   const history = useHistory();
 
   const { fields } = useAuth();
@@ -39,6 +45,9 @@ export function UserForm() {
       fullHeight
       onSubmit={handleSaveProfile}
     >
+      <Modal opened={openModal}>
+        <ImageEditor />
+      </Modal>
       <BaseDiv>
         <Typography textAlign="center" bold size={18} color="gray">
           Editar perfil

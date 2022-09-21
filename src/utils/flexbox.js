@@ -5,7 +5,7 @@ export const flexbox = ({
   justifyContent,
 }) => ({
   display: flex && "flex",
-  flexDirection: column && "collumn",
+  flexDirection: column && "column",
   alignItems,
   justifyContent,
 });

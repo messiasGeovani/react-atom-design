@@ -1,16 +1,19 @@
 import React from "react";
-
 import { useHistory } from "react-router-dom";
+
 import { AnimatedDiv } from "../../components/Animated";
+import { Box } from "../../components/atoms";
 import { BaseDiv } from "../../components/Base";
-import { AuthForm } from "../../components/organisms/Forms/AuthForm";
-import { Background, LoginBanner, WhiteBox } from "./styles";
+
+import { AuthForm } from "../../components/organisms/Forms";
+
+import { Background, LoginBanner } from "./styles";
 
 export default function Login() {
   const history = useHistory();
 
   const redirectToSignUp = () => history.push("/signup");
-  
+
   const handleLogin = (event) => {
     event.preventDefault();
     history.push("/profile");
@@ -24,7 +27,7 @@ export default function Login() {
         justifyContent="space-between"
         fullHeight
       >
-        <WhiteBox
+        <Box
           flex
           column
           alignItems="center"
@@ -36,8 +39,8 @@ export default function Login() {
             alternateForm={redirectToSignUp}
             handleSubmit={handleLogin}
           />
-        </WhiteBox>
-        <WhiteBox fullWidth fullHeight>
+        </Box>
+        <Box fullWidth fullHeight>
           <AnimatedDiv
             flex
             alignItems="center"
@@ -50,7 +53,7 @@ export default function Login() {
           >
             <LoginBanner />
           </AnimatedDiv>
-        </WhiteBox>
+        </Box>
       </BaseDiv>
     </Background>
   );

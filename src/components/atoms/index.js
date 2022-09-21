@@ -3,7 +3,8 @@ import { PrimaryCheckBox } from "./Checkbox";
 import { Input } from "./Input";
 import { Title } from "./Title";
 import { Label, Typography } from "./Typography";
-import { Separator } from './Separator'
+import { Separator } from "./Separator";
+import { Box } from "./Box";
 
 export {
   PrimaryButton,
@@ -14,7 +15,8 @@ export {
   Typography,
   PrimaryCheckBox,
   Label,
-  Separator
+  Separator,
+  Box,
 };
 
 export * from "./Icons";

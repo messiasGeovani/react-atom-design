@@ -1,19 +1,21 @@
 import React from "react";
-import { UserForm } from "../../components/organisms/Forms/UserForm";
+import { AnimatedBox } from "../../components/Animated";
 
-import { Background, Box } from "./styles";
+import { UserForm } from "../../components/organisms/Forms";
+
+import { Background } from "./styles";
 
 export default function Profile() {
   return (
     <Background flex alignItems="center" justifyContent="center">
-      <Box
+      <AnimatedBox
         duration={0.5}
         animation="fadeInZoomIn"
         fillMode="backwards"
         padding={5}
       >
         <UserForm />
-      </Box>
+      </AnimatedBox>
     </Background>
   );
 }
