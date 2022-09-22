@@ -11,10 +11,14 @@ import { ImageEditor } from "../../ImageEditor";
 import { Modal } from "../../../molecules";
 
 import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
+import { useDispatch } from "react-redux";
+import { addProfile } from "../../../../store/Profile.store";
 
 export function UserForm() {
   const [openModal, setOpenModal] = useState(false);
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const { fields } = useAuth();
 
@@ -34,6 +38,7 @@ export function UserForm() {
 
   const handleSaveProfile = (event) => {
     event.preventDefault();
+    dispatch(addProfile(profileFields));
     history.goBack();
   };
 
