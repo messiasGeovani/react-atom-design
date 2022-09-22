@@ -8,7 +8,7 @@ import { Input, Separator, SuccessButton, Typography } from "../../../atoms";
 import { BaseDiv, BaseForm, BaseSpan } from "../../../Base";
 import { ImageEditor } from "../../ImageEditor";
 
-import { Modal } from "../../Modal";
+import { Modal } from "../../../molecules";
 
 import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
 
@@ -23,6 +23,8 @@ export function UserForm() {
     lastName: "",
     email: fields.email || "",
     password: fields.password || "",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/2048px-Circle-icons-profile.svg.png",
   });
 
   const handleChangeProfileField =
@@ -33,6 +35,11 @@ export function UserForm() {
   const handleSaveProfile = (event) => {
     event.preventDefault();
     history.goBack();
+  };
+
+  const handleProcessImage = (image) => {
+    setProfileFields({ ...profileFields, image });
+    setOpenModal(false);
   };
 
   return (
@@ -46,7 +53,7 @@ export function UserForm() {
       onSubmit={handleSaveProfile}
     >
       <Modal opened={openModal}>
-        <ImageEditor />
+        <ImageEditor onProcess={handleProcessImage} />
       </Modal>
       <BaseDiv>
         <Typography textAlign="center" bold size={18} color="gray">
@@ -64,8 +71,9 @@ export function UserForm() {
             duration={1.1}
             animation="fadeInRight"
             fillMode="both"
+            onClick={() => setOpenModal(true)}
           >
-            <ProfileImg src="https://preview.redd.it/dolotg3z61p81.jpg?auto=webp&s=a63d01c46e3deaa5621eed2c20ff3dc4e657a2c8" />
+            <ProfileImg src={profileFields.image} />
             <EditIcon size={28} />
           </ProfileImgWrapper>
         </BaseDiv>

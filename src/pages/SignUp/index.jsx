@@ -5,7 +5,7 @@ import { AnimatedDiv } from "../../components/Animated";
 import { Box } from "../../components/atoms";
 import { BaseDiv } from "../../components/Base";
 
-import { AuthForm } from "../../components/organisms/Forms";
+import { AuthForm } from "../../components/organisms";
 
 import { Background, LoginBanner } from "./styles";
 

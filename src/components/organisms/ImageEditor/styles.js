@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const EditorContainer = styled.div`
   width: 95vw;
-  height: 600px;
+  height: 80vh;
 
   /* bright / dark mode */
   .pintura-editor {

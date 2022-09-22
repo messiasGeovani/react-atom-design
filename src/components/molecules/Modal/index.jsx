@@ -7,6 +7,10 @@ import { Background } from "./styles";
 export function Modal({ opened = false, children }) {
   const animationType = opened ? "fadeIn" : "fadeOut";
 
+  if (!opened) {
+    return;
+  }
+
   return (
     <Background
       flex
