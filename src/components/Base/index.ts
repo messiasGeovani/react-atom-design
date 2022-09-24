@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 
 import { colors, flexbox, fontConfig, resizer, spacer } from "../../utils";
 import { IColorProps } from "../../utils/colors";
@@ -25,22 +25,16 @@ const textAttrs = (props: TDefaultAttrsProps & IFontProps & IColorProps) => ({
   ...colors(props as IColorProps),
 });
 
-export const BaseDiv = styled.div(flexAttrs);
+export const BaseDiv = styled.div(flexAttrs as unknown as CSSObject);
 
-// @ts-ignore
-export const BaseSpan = styled.span(flexAttrs);
+export const BaseSpan = styled.span(flexAttrs as unknown as CSSObject);
 
-// @ts-ignore
-export const BaseInput = styled.input(defaultAttrs);
+export const BaseInput = styled.input(defaultAttrs as unknown as CSSObject);
 
-// @ts-ignore
-export const BaseText = styled.p(textAttrs);
+export const BaseText = styled.p(textAttrs as unknown as CSSObject);
 
-// @ts-ignore
-export const BaseButton = styled.button<TDefaultAttrsProps & IFlexboxProps>(defaultAttrs);
+export const BaseButton = styled.button(defaultAttrs as unknown as CSSObject);
 
-// @ts-ignore
 export const BaseForm = styled.form.attrs(flexAttrs)``;
 
-// @ts-ignore
-export const BaseImg = styled.img(defaultAttrs);
+export const BaseImg = styled.img(defaultAttrs as unknown as CSSObject);
