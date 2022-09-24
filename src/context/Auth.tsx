@@ -1,8 +1,12 @@
 import React, { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext();
+const AuthContext = createContext({});
 
-export function AuthProvider({ children }) {
+export function AuthProvider({
+  children,
+}: {
+  children: React.ReactNode | React.ReactElement | any;
+}) {
   const [fields, setFields] = useState({
     email: "",
     password: "",

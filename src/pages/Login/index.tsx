@@ -14,7 +14,7 @@ export default function Login() {
 
   const redirectToSignUp = () => history.push("/signup");
 
-  const handleLogin = (event) => {
+  const handleLogin = (event: Event) => {
     event.preventDefault();
     history.push("/profile");
   };

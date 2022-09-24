@@ -1,15 +1,17 @@
 import React from "react";
 import { colors, normalizeObject, spacer } from "../../../utils";
+import { IColorProps } from "../../../utils/colors";
+import { ISpacerProps } from "../../../utils/spacer";
 
-export function ThunderIcon({ size, color, ...props }) {
-  const spacingOptions = spacer(props);
+export function ThunderIcon({ size = 24, color = "primary", ...props }) {
+  const spacingOptions = spacer(props as ISpacerProps);
   const normalizedSpacingOptions = normalizeObject(spacingOptions);
-  const { fill } = colors({ fill: color });
+  const { fill } = colors({ fill: color } as IColorProps);
 
   return (
     <svg
-      width={`${size || 24}px`}
-      height={`${size || 24}px`}
+      width={`${size}px`}
+      height={`${size}px`}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMinYMin"

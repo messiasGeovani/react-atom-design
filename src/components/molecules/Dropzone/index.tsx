@@ -6,7 +6,12 @@ import { BaseDiv, BaseSpan } from "../../Base";
 
 import { DownloadIcon, DropzoneWrapper } from "./styles";
 
-export function Dropzone({ open, onDrop }) {
+interface IDropzoneProps {
+  open: boolean;
+  onDrop: (acceptedFiles: any) => void;
+}
+
+export function Dropzone({ open, onDrop }: IDropzoneProps) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     multiple: false,
     onDrop,

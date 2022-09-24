@@ -6,16 +6,14 @@ const INITIAL_STATE = {
   image: "",
 };
 
-const reducers = {
-  addProfile(state, action) {
-    Object.assign(state, action.payload);
-  },
-};
-
 const profile = createSlice({
   name: "profile",
   initialState: INITIAL_STATE,
-  reducers,
+  reducers: {
+    addProfile(state, action) {
+      Object.assign(state, action.payload);
+    },
+  },
 });
 
 export const { addProfile } = profile.actions;

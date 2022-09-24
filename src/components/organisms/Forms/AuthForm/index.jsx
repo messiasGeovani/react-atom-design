@@ -127,7 +127,7 @@ export function AuthForm({ isRegister, alternateForm, handleSubmit }) {
           animation="fadeInRight"
           fillMode="backwards"
         >
-          <ThunderIcon size={50} color="primary" />
+          <ThunderIcon size={50} />
         </AnimatedDiv>
       </Hidden>
       <AnimatedDiv

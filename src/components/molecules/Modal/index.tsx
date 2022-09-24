@@ -4,7 +4,12 @@ import { AnimatedBox } from "../../Animated";
 
 import { Background } from "./styles";
 
-export function Modal({ opened = false, children }) {
+interface IModalProps {
+  opened: boolean;
+  children: React.ReactNode | React.ReactElement | any;
+}
+
+export function Modal({ opened = false, children }: IModalProps) {
   const animationType = opened ? "fadeIn" : "fadeOut";
 
   if (!opened) {

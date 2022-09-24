@@ -1,13 +1,18 @@
 import styled, { css } from "styled-components";
 
 import { respondTo } from "../../utils";
+import { TBreakpoints } from "../../utils/medias";
 import { BaseSpan } from "../Base";
+
+type TConfigHideBreakPointProps = {
+  [key in TBreakpoints]: boolean;
+};
 
 const hideDisplayCss = css`
   display: none;
 `;
 
-function configHideBreakpoint({ xs, sm, md, lg }) {
+function configHideBreakpoint({ xs, sm, md, lg }: TConfigHideBreakPointProps) {
   if (xs) {
     return respondTo.xs`${hideDisplayCss}`;
   }

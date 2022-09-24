@@ -1,10 +1,19 @@
-import styled, { css } from "styled-components";
+import styled, { css, SimpleInterpolation } from "styled-components";
 
 import * as Animations from "../../styles/Animations";
 import { Box } from "../atoms";
 import { BaseDiv, BaseSpan } from "../Base";
 
-function setAnimation(animation) {
+type TAnimation = keyof typeof Animations;
+
+interface IAnimationProps {
+  duration: number;
+  animation: TAnimation;
+  fillMode: "none" | "forwards" | "backwards" | "both";
+  delay: number;
+}
+
+function setAnimation(animation: TAnimation): SimpleInterpolation | void {
   const animations = Object.keys(Animations);
 
   if (!animations.includes(animation)) {
@@ -14,8 +23,13 @@ function setAnimation(animation) {
   return Animations[animation];
 }
 
-const animationAttrs = ({ duration, animation, fillMode, delay }) => css`
-  animation-name: ${setAnimation(animation)};
+const animationAttrs = ({
+  duration,
+  animation,
+  fillMode,
+  delay,
+}: IAnimationProps) => css`
+  animation-name: ${setAnimation(animation) as SimpleInterpolation};
   animation-duration: ${duration}s;
   animation-fill-mode: ${fillMode};
   animation-delay: ${delay}s;

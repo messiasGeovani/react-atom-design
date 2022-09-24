@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { respondTo } from "../../../utils/medias";
 import { BaseButton } from "../../Base";
 
-const disabledButtonAttrs = ({ disabled }) => css`
+const disabledButtonAttrs = ({ disabled = false }) => css`
   transition: ${disabled && "none"} !important;
   background: ${disabled && "gray"} !important;
   cursor: ${disabled && "initial"} !important;

@@ -3,7 +3,7 @@ import { Download } from "styled-icons/material";
 
 import { BaseDiv } from "../../Base";
 
-const dropzoneColorAttrs = ({ isActive }) => css`
+const dropzoneColorAttrs = ({ isActive = false }) => css`
   border-color: ${isActive && "var(--primary)"};
   color: ${isActive && "var(--primary)"};
 `;

@@ -1,8 +1,9 @@
 import React from "react";
 import { normalizeObject, spacer } from "../../../utils";
+import { ISpacerProps } from "../../../utils/spacer";
 
 export function GoogleIcon({ size = 48, ...props }) {
-  const spacingOptions = spacer(props);
+  const spacingOptions = spacer(props as ISpacerProps);
   const normalizedSpacingOptions = normalizeObject(spacingOptions);
 
   return (
