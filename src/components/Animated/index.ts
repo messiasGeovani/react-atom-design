@@ -10,7 +10,7 @@ interface IAnimationProps {
   duration: number;
   animation: TAnimation;
   fillMode: "none" | "forwards" | "backwards" | "both";
-  delay: number;
+  delay?: number;
 }
 
 function setAnimation(animation: TAnimation): SimpleInterpolation | void {

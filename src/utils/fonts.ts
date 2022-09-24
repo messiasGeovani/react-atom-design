@@ -1,8 +1,8 @@
 export interface IFontProps {
-  semibold: boolean;
-  bold: boolean;
-  clickable: boolean;
-  textAlign: "left" | "right" | "center";
+  semibold?: boolean;
+  bold?: boolean;
+  clickable?: boolean;
+  textAlign?: "left" | "right" | "center";
 }
 
 function setFontWeight({
@@ -27,6 +27,6 @@ export const fontConfig = ({
   textAlign,
 }: IFontProps) => ({
   fontWeight: setFontWeight({ semibold, bold }),
-  cursor: clickable && "pointer",
+  cursor: clickable ? "pointer" : "initial",
   textAlign,
 });

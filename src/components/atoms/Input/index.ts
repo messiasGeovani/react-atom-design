@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { respondTo } from "../../../utils";
+import { media } from "../../../utils";
 import { BaseInput } from "../../Base";
 
 export const Input = styled(BaseInput)`
@@ -11,7 +11,7 @@ export const Input = styled(BaseInput)`
   border: 1px solid lightgray;
   border-radius: 25px;
 
-  ${respondTo.md`
+  ${media.lessThan("md")`
     height: 40px;
   `}
 `;

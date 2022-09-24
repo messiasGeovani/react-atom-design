@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import { BaseText } from "../../Base";
+import { css } from "styled-components";
+import { BaseLabel, BaseText } from "../../Base";
 
-export const Typography = styled(BaseText)`
-  font-size: ${({ size = 14 }) => size}px;
+const sizeAttrs = ({ size = 14 }) => css`
+  font-size: ${size}px;
 `;
 
-export const Label = styled(Typography).attrs({
-  as: "label",
-})`
+export const Typography = styled(BaseText)`
+  ${sizeAttrs}
+`;
+
+export const Label = styled(BaseLabel)`
   cursor: pointer;
+  ${sizeAttrs}
 `;

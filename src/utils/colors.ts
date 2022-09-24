@@ -1,10 +1,10 @@
 export interface IColorProps {
-  background: string;
-  color: string;
-  fill: string;
+  background?: string;
+  color?: string;
+  fill?: string;
 };
 
-function setColor(colorValue: string) {
+function setColor(colorValue?: string) {
   if (!colorValue) {
     return;
   }

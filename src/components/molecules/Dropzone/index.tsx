@@ -7,11 +7,10 @@ import { BaseDiv, BaseSpan } from "../../Base";
 import { DownloadIcon, DropzoneWrapper } from "./styles";
 
 interface IDropzoneProps {
-  open: boolean;
-  onDrop: (acceptedFiles: any) => void;
+  onDrop: (acceptedFiles: File[] | any) => void;
 }
 
-export function Dropzone({ open, onDrop }: IDropzoneProps) {
+export function Dropzone({ onDrop }: IDropzoneProps) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     multiple: false,
     onDrop,
@@ -31,15 +30,13 @@ export function Dropzone({ open, onDrop }: IDropzoneProps) {
         {...getRootProps()}
       >
         <input {...getInputProps()} />
-        <DownloadIcon size={30} className={isDragActive && "active"} />
-        <Typography disabled semibold>
-          {message}
-        </Typography>
+        <DownloadIcon size={30} className={isDragActive ? "active" : ""} />
+        <Typography semibold>{message}</Typography>
         <BaseSpan fullWidth mt={1}>
           <PrimaryButton
             type="button"
             fullWidth
-            onClick={open}
+            onClick={onDrop}
             disabled={isDragActive}
           >
             Selecionar Arquivo

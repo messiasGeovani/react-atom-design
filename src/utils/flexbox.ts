@@ -1,8 +1,10 @@
+import { CSSObject } from "styled-components";
+
 export interface IFlexboxProps {
-  flex: boolean;
-  column: boolean;
-  alignItems: "flex-start" | "center" | "flex-end";
-  justifyContent:
+  flex?: boolean;
+  column?: boolean;
+  alignItems?: "flex-start" | "center" | "flex-end";
+  justifyContent?:
     | "flex-start"
     | "center"
     | "flex-end"
@@ -15,9 +17,9 @@ export const flexbox = ({
   column,
   alignItems,
   justifyContent,
-}: IFlexboxProps) => ({
-  display: flex && "flex",
-  flexDirection: column && "column",
+}: IFlexboxProps): CSSObject => ({
+  display: flex ? "flex" : "auto",
+  flexDirection: column ? "column" : "row",
   alignItems,
   justifyContent,
 });

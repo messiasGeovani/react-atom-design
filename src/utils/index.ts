@@ -3,7 +3,7 @@ import { resizer } from "./resizer";
 import { flexbox } from "./flexbox";
 import { fontConfig } from "./fonts";
 import { colors } from "./colors";
-import { respondTo } from "./medias";
+import { media } from "./medias";
 import { normalizeObject } from "./objects";
 
 export {
@@ -12,6 +12,6 @@ export {
   flexbox,
   fontConfig,
   colors,
-  respondTo,
+  media,
   normalizeObject,
 };

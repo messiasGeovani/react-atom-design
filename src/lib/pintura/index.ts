@@ -4,7 +4,15 @@ import {
   createDefaultImageWriter,
 } from "./pintura";
 
-const getEditorOptions = (selectedImage) => ({
+import "./pintura.css";
+
+interface IConfigPinturaEditorParams {
+  elementRef: any;
+  selectedImage: string;
+  onProcess: (image: string) => void;
+}
+
+const getEditorOptions = (selectedImage: string) => ({
   // The source image to load
   src: selectedImage,
 
@@ -18,23 +26,28 @@ const getEditorOptions = (selectedImage) => ({
   imageWriter: createDefaultImageWriter(),
 });
 
-export function configPinturaEditor({ elementRef, selectedImage, onProcess }) {
+export function configPinturaEditor({
+  elementRef,
+  selectedImage,
+  onProcess,
+}: IConfigPinturaEditorParams) {
   if (!elementRef) {
     return;
   }
 
-  import("./pintura.css");
-
-  const editor = appendDefaultEditor(
+  const editor: any = appendDefaultEditor(
     elementRef,
     getEditorOptions(selectedImage)
   );
 
-  editor.on("process", (imageState) => {
+  editor.on("process", (imageState: any) => {
     const reader = new FileReader();
 
     reader.onload = function ({ target }) {
-      onProcess(target.result);
+      if (!target) {
+        return;
+      }
+      onProcess(target.result as string);
     };
 
     reader.readAsDataURL(imageState.dest);

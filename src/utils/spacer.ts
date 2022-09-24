@@ -1,17 +1,17 @@
 export interface ISpacerProps {
-  margin: number;
-  mt: number;
-  mr: number;
-  mb: number;
-  ml: number;
-  padding: number;
-  pt: number;
-  pr: number;
-  pb: number;
-  pl: number;
+  margin?: number;
+  mt?: number;
+  mr?: number;
+  mb?: number;
+  ml?: number;
+  padding?: number;
+  pt?: number;
+  pr?: number;
+  pb?: number;
+  pl?: number;
 }
 
-function spacing(size: number) {
+function spacing(size?: number) {
   if (!size) {
     return;
   }

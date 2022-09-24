@@ -3,12 +3,14 @@ import { colors, spacer } from "../../../utils";
 import { IColorProps } from "../../../utils/colors";
 import { ISpacerProps } from "../../../utils/spacer";
 
-const separatorAttrs = (props: ISpacerProps | IColorProps) => ({
+type TSeparatorProps = ISpacerProps & IColorProps;
+
+const separatorAttrs = (props: TSeparatorProps) => ({
   ...spacer(props as ISpacerProps),
   ...colors(props as IColorProps),
 });
 
-const BaseSeparator = styled.span(separatorAttrs);
+const BaseSeparator = styled.span<TSeparatorProps>(separatorAttrs);
 
 export const Separator = styled(BaseSeparator)`
   width: 100%;

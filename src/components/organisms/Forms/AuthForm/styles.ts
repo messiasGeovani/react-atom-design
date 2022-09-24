@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 
-import { respondTo } from "../../../../utils";
+import { media } from "../../../../utils";
 import { AnimatedDiv } from "../../../Animated";
 import { BaseForm } from "../../../Base";
 
 export const FormWrapper = styled(BaseForm)`
   width: 50%;
 
-  ${respondTo.md`
+  ${media.lessThan('md')`
     width: 75%;
   `}
 `;

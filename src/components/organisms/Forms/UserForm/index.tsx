@@ -32,17 +32,19 @@ export function UserForm() {
   });
 
   const handleChangeProfileField =
-    (fieldKey) =>
-    ({ target }) =>
+    (fieldKey: keyof typeof profileFields) =>
+    ({ target }: React.ChangeEvent<HTMLInputElement>) =>
       setProfileFields({ ...profileFields, [fieldKey]: target.value });
 
-  const handleSaveProfile = (event) => {
+  const handleSaveProfile = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
     dispatch(addProfile(profileFields));
     history.goBack();
   };
 
-  const handleProcessImage = (image) => {
+  const handleProcessImage = (image: string) => {
     setProfileFields({ ...profileFields, image });
     setOpenModal(false);
   };
@@ -60,7 +62,7 @@ export function UserForm() {
       <Modal opened={openModal}>
         <ImageEditor onProcess={handleProcessImage} />
       </Modal>
-      <BaseDiv>
+      <BaseDiv fullWidth>
         <Typography textAlign="center" bold size={18} color="gray">
           Editar perfil
         </Typography>

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { respondTo } from "../../../utils/medias";
+import { media } from "../../../utils";
 import { BaseButton } from "../../Base";
 
 const disabledButtonAttrs = ({ disabled = false }) => css`
@@ -9,7 +9,7 @@ const disabledButtonAttrs = ({ disabled = false }) => css`
   cursor: ${disabled && "initial"} !important;
 `;
 
-const Button = styled(BaseButton)`
+const Button = styled(BaseButton)<{ disabled?: boolean }>`
   height: 50px;
   border-radius: 25px;
   padding: 10px;
@@ -17,7 +17,7 @@ const Button = styled(BaseButton)`
   font-weight: 500;
   cursor: pointer;
 
-  ${respondTo.md`
+  ${media.lessThan('md')`
     height: 40px;
   `}
 

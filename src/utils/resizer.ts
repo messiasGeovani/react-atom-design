@@ -1,9 +1,9 @@
 export interface IResizerProps {
-  fullWidth: boolean;
-  fullHeight: boolean;
+  fullWidth?: boolean;
+  fullHeight?: boolean;
 }
 
 export const resizer = ({ fullWidth, fullHeight }: IResizerProps) => ({
-  width: fullWidth && "100%",
-  height: fullHeight && "100%",
+  width: fullWidth ? "100%" : "auto",
+  height: fullHeight ? "100%" : "auto",
 });

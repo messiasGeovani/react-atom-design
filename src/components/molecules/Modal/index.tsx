@@ -10,10 +10,9 @@ interface IModalProps {
 }
 
 export function Modal({ opened = false, children }: IModalProps) {
-  const animationType = opened ? "fadeIn" : "fadeOut";
 
   if (!opened) {
-    return;
+    return null;
   }
 
   return (
@@ -22,7 +21,7 @@ export function Modal({ opened = false, children }: IModalProps) {
       alignItems="center"
       justifyContent="center"
       duration={0.5}
-      animation={animationType}
+      animation="fadeIn"
       fillMode="both"
     >
       <AnimatedBox

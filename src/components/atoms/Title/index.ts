@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { respondTo } from "../../../utils/medias";
+import { media } from "../../../utils/medias";
 import { BaseText } from "../../Base";
 
 export const Title = styled(BaseText).attrs({
@@ -7,7 +7,7 @@ export const Title = styled(BaseText).attrs({
 })`
   font-weight: 700;
 
-  ${respondTo.md`
+  ${media.lessThan('md')`
     font-size: 27px;
   `}
 `;

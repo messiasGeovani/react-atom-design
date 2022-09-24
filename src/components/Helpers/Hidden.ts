@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
-import { respondTo } from "../../utils";
+import { media } from "../../utils";
 import { TBreakpoints } from "../../utils/medias";
 import { BaseSpan } from "../Base";
 
 type TConfigHideBreakPointProps = {
-  [key in TBreakpoints]: boolean;
+  [key in TBreakpoints]?: boolean;
 };
 
 const hideDisplayCss = css`
@@ -14,22 +14,22 @@ const hideDisplayCss = css`
 
 function configHideBreakpoint({ xs, sm, md, lg }: TConfigHideBreakPointProps) {
   if (xs) {
-    return respondTo.xs`${hideDisplayCss}`;
+    return media.lessThan('xs')`${hideDisplayCss}`;
   }
 
   if (sm) {
-    return respondTo.sm`${hideDisplayCss}`;
+    return media.lessThan('sm')`${hideDisplayCss}`;
   }
 
   if (md) {
-    return respondTo.md`${hideDisplayCss}`;
+    return media.lessThan('md')`${hideDisplayCss}`;
   }
 
   if (lg) {
-    return respondTo.lg`${hideDisplayCss}`;
+    return media.lessThan('lg')`${hideDisplayCss}`;
   }
 
-  return respondTo.md`${hideDisplayCss}`;
+  return media.lessThan('md')`${hideDisplayCss}`;
 }
 
 export const Hidden = styled(BaseSpan)`

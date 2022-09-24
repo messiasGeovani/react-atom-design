@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Dropzone } from "../../molecules";
 
@@ -6,18 +6,29 @@ import { configPinturaEditor } from "../../../lib/pintura";
 
 import { EditorContainer } from "./styles";
 
-export function ImageEditor({ onProcess }) {
+interface IIMageEditorProps {
+  onProcess: (image: string) => void;
+}
+
+export function ImageEditor({ onProcess }: IIMageEditorProps) {
   const [openEditor, setOpenEditor] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
   const containerRef = useRef(null);
 
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.map((file) => {
+  const onDrop = useCallback((acceptedFiles: File[] | any) => {
+    if (!acceptedFiles.length) {
+      return;
+    }
+
+    acceptedFiles.map((file: File) => {
       const reader = new FileReader();
 
-      reader.onload = function ({ target }) {
-        setSelectedImage(target.result);
+      reader.onload = function ({ target }: ProgressEvent<FileReader>) {
+        if (!target) {
+          return;
+        }
+        setSelectedImage(target.result as string);
         setOpenEditor(true);
       };
       reader.readAsDataURL(file);

@@ -1,22 +1,12 @@
-import { css, SimpleInterpolation } from "styled-components";
+import { generateMedia } from "styled-media-query";
 
 export type TBreakpoints = keyof typeof breakpoints;
 
 const breakpoints = {
-  xs: "min-width: 480px",
-  sm: "min-width: 768px",
-  md: "max-width: 1600px",
-  lg: "max-width: 1920px",
+  xs: "480px",
+  sm: "768px",
+  md: "1600px",
+  lg: "1920px",
 };
 
-export const respondTo = (
-  Object.keys(breakpoints) as Array<keyof typeof breakpoints>
-).reduce((accumulator, label) => {
-  // @ts-ignore
-  accumulator[label] = (style: SimpleInterpolation) => css`
-    @media (${breakpoints[label]}) {
-      ${style}
-    } ;
-  `;
-  return accumulator;
-}, {} as { [index: string]: Function });
+export const media = generateMedia(breakpoints);

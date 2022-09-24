@@ -1,13 +1,26 @@
 import React, { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext({});
+interface IAuthProviderState {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  rememberLogin: boolean;
+  acceptTerms: boolean;
+}
+
+interface IAuthContext {
+  fields: IAuthProviderState;
+  setFields: React.Dispatch<React.SetStateAction<IAuthProviderState>>;
+}
+
+const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export function AuthProvider({
   children,
 }: {
   children: React.ReactNode | React.ReactElement | any;
 }) {
-  const [fields, setFields] = useState({
+  const [fields, setFields] = useState<IAuthProviderState>({
     email: "",
     password: "",
     confirmPassword: "",

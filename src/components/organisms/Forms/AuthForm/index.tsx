@@ -18,7 +18,17 @@ import { Hidden } from "../../../Helpers";
 
 import { FormWrapper, Separator } from "./styles";
 
-export function AuthForm({ isRegister, alternateForm, handleSubmit }) {
+interface IAuthFormProps {
+  isRegister?: boolean;
+  alternateForm: () => void;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+}
+
+export function AuthForm({
+  isRegister,
+  alternateForm,
+  handleSubmit,
+}: IAuthFormProps) {
   const { fields, setFields } = useAuth();
 
   const texts = {
@@ -33,17 +43,14 @@ export function AuthForm({ isRegister, alternateForm, handleSubmit }) {
   };
 
   const handleChangeField =
-    (fieldKey) =>
-    ({ target }) => {
+    (fieldKey: keyof typeof fields) =>
+    ({ target }: React.ChangeEvent<HTMLInputElement>) =>
       setFields({ ...fields, [fieldKey]: target.value });
-    };
 
   const handleCheckField =
-    (fieldKey) =>
-    ({ target }) => {
+    (fieldKey: keyof typeof fields) =>
+    ({ target }: React.ChangeEvent<HTMLInputElement>) =>
       setFields({ ...fields, [fieldKey]: target.checked });
-      console.log(target.checked);
-    };
 
   const ConfirmPasswordInput = isRegister && (
     <AnimatedDiv
@@ -120,7 +127,7 @@ export function AuthForm({ isRegister, alternateForm, handleSubmit }) {
   );
 
   return (
-    <FormWrapper flex onSubmit={handleSubmit}>
+    <FormWrapper onSubmit={handleSubmit}>
       <Hidden>
         <AnimatedDiv
           duration={1.1}

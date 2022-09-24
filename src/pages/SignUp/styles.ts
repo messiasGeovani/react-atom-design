@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import peopleBannerImg from "../../assets/banners/people.png";
 
-import { respondTo } from "../../utils/medias";
+import { media } from "../../utils/medias";
 
 export const Background = styled.div`
   height: 100vh;
@@ -9,7 +9,7 @@ export const Background = styled.div`
   background: var(--tertiary);
   padding: 50px 70px;
 
-  ${respondTo.md`
+  ${media.lessThan("md")`
     padding: 0;
   `}
 `;
