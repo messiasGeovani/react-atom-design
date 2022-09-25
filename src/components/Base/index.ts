@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import { colors, flexbox, fontConfig, resizer, spacer } from "../../utils";
-import { IColorProps } from "../../utils/colors";
-import { IFlexboxProps } from "../../utils/flexbox";
-import { IFontProps } from "../../utils/fonts";
-import { IResizerProps } from "../../utils/resizer";
-import { ISpacerProps } from "../../utils/spacer";
+import { colors, flexbox, fontConfig, resizer, spacer } from "@utils/index";
+import { IColorProps } from "@utils/colors";
+import { IFlexboxProps } from "@utils/flexbox";
+import { IFontProps } from "@utils/fonts";
+import { IResizerProps } from "@utils/resizer";
+import { ISpacerProps } from "@utils/spacer";
 
 type TDefaultAttrsProps = ISpacerProps & IResizerProps;
 type TFlexAttrsProps = TDefaultAttrsProps & IFlexboxProps;

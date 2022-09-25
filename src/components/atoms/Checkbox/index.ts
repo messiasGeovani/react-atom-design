@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BaseInput } from "../../Base";
+import { BaseInput } from "@components/Base";
 
 const BaseCheckBox = styled(BaseInput).attrs({
   type: "checkbox",

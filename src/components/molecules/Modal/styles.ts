@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { AnimatedDiv } from "../../Animated";
+
+import { AnimatedDiv } from "@components/Animated";
 
 export const Background = styled(AnimatedDiv)`
   height: 100%;

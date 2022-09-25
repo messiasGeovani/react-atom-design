@@ -1,11 +1,11 @@
 import React from "react";
+
 import { useHistory } from "react-router-dom";
 
-import { AnimatedDiv } from "../../components/Animated";
-import { Box } from "../../components/atoms";
-import { BaseDiv } from "../../components/Base";
-
-import { AuthForm } from "../../components/organisms";
+import { AnimatedDiv } from "@components/Animated";
+import { Box } from "@components/atoms";
+import { BaseDiv } from "@components/Base";
+import { AuthForm } from "@components/organisms";
 
 import { Background, LoginBanner } from "./styles";
 

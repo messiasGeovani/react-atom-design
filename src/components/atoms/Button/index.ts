@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 
-import { media } from "../../../utils";
-import { BaseButton } from "../../Base";
+import { media } from "@utils/index";
+
+import { BaseButton } from "@components/Base";
 
 const disabledButtonAttrs = ({ disabled = false }) => css`
   transition: ${disabled && "none"} !important;

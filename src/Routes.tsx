@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./context/Auth";
 
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import SignUp from "./pages/SignUp";
+import Login from "@pages/Login";
+import Profile from "@pages/Profile";
+import SignUp from "@pages/SignUp";
 
 export default function AppRoutes() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AnimatedBox } from "../../Animated";
+import { AnimatedBox } from "@components/Animated";
 
 import { Background } from "./styles";
 

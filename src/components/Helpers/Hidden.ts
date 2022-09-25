@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
 
-import { media } from "../../utils";
-import { TBreakpoints } from "../../utils/medias";
-import { BaseSpan } from "../Base";
+import { media } from "@utils/index";
+import { TBreakpoints } from "@utils/medias";
+
+import { BaseSpan } from "@components/Base";
 
 type TConfigHideBreakPointProps = {
   [key in TBreakpoints]?: boolean;

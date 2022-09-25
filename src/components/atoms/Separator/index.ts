@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { colors, spacer } from "../../../utils";
-import { IColorProps } from "../../../utils/colors";
-import { ISpacerProps } from "../../../utils/spacer";
+
+import { colors, spacer } from "@utils/index";
+import { IColorProps } from "@utils/colors";
+import { ISpacerProps } from "@utils/spacer";
 
 type TSeparatorProps = ISpacerProps & IColorProps;
 

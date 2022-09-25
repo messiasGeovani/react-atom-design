@@ -1,7 +1,7 @@
 import React from "react";
-import { AnimatedBox } from "../../components/Animated";
+import { AnimatedBox } from "@components/Animated";
 
-import { UserForm } from "../../components/organisms";
+import { UserForm } from "@components/organisms";
 
 import { Background } from "./styles";
 

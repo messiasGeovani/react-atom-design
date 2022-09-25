@@ -1,7 +1,8 @@
 import React from "react";
-import { useAuth } from "../../../../context/Auth";
-import { AnimatedDiv } from "../../../Animated";
 
+import { useAuth } from "@context/Auth";
+
+import { AnimatedDiv } from "@components/Animated";
 import {
   GoogleIcon,
   Input,
@@ -12,9 +13,9 @@ import {
   ThunderIcon,
   Title,
   Typography,
-} from "../../../atoms";
-import { BaseSpan } from "../../../Base";
-import { Hidden } from "../../../Helpers";
+} from "@components/atoms";
+import { BaseSpan } from "@components/Base";
+import { Hidden } from "@components/Helpers";
 
 import { FormWrapper, Separator } from "./styles";
 

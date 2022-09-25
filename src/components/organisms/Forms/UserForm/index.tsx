@@ -1,24 +1,25 @@
 import React, { useState } from "react";
+
 import { useHistory } from "react-router-dom";
 
-import { useAuth } from "../../../../context/Auth";
+import { useAuth } from "@context/Auth";
 
-import { AnimatedDiv } from "../../../Animated";
-import { Input, Separator, SuccessButton, Typography } from "../../../atoms";
-import { BaseDiv, BaseForm, BaseSpan } from "../../../Base";
-import { ImageEditor } from "../../ImageEditor";
+import { useAppDispatch } from "@store/hooks";
+import { addProfile } from "@store/Profile.store";
 
-import { Modal } from "../../../molecules";
+import { AnimatedDiv } from "@components/Animated";
+import { Input, Separator, SuccessButton, Typography } from "@components/atoms";
+import { BaseDiv, BaseForm, BaseSpan } from "@components/Base";
+import { ImageEditor } from "@components/organisms/ImageEditor";
+import { Modal } from "@components/molecules";
 
 import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
-import { useDispatch } from "react-redux";
-import { addProfile } from "../../../../store/Profile.store";
 
 export function UserForm() {
   const [openModal, setOpenModal] = useState(false);
   const history = useHistory();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { fields } = useAuth();
 
@@ -36,9 +37,7 @@ export function UserForm() {
     ({ target }: React.ChangeEvent<HTMLInputElement>) =>
       setProfileFields({ ...profileFields, [fieldKey]: target.value });
 
-  const handleSaveProfile = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSaveProfile = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(addProfile(profileFields));
     history.goBack();

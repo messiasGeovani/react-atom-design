@@ -1,8 +1,9 @@
 import React from "react";
+
 import { useDropzone } from "react-dropzone";
 
-import { PrimaryButton, Typography } from "../../atoms";
-import { BaseDiv, BaseSpan } from "../../Base";
+import { PrimaryButton, Typography } from "@components/atoms";
+import { BaseDiv, BaseSpan } from "@components/Base";
 
 import { DownloadIcon, DropzoneWrapper } from "./styles";
 

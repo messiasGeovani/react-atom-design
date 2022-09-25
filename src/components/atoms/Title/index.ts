@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { media } from "../../../utils/medias";
-import { BaseText } from "../../Base";
+
+import { media } from "@utils/medias";
+
+import { BaseText } from "@components/Base";
 
 export const Title = styled(BaseText).attrs({
   as: "h1",

@@ -1,7 +1,9 @@
 import styled from "styled-components";
+
 import { Edit } from "@styled-icons/material";
-import { BaseImg } from "../../../Base";
-import { AnimatedSpan } from "../../../Animated";
+
+import { BaseImg } from "@components/Base";
+import { AnimatedSpan } from "@components/Animated";
 
 export const ProfileImgWrapper = styled(AnimatedSpan)`
   > svg {

@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { media } from "../../../utils";
-import { BaseInput } from "../../Base";
+
+import { media } from "@utils/index";
+
+import { BaseInput } from "@components/Base";
 
 export const Input = styled(BaseInput)`
   height: 50px;

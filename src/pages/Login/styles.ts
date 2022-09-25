@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import peopleBannerImg from "../../assets/banners/people.png";
 
-import { media } from "../../utils/medias";
+import { media } from "@utils/medias";
+
+import peopleBannerImg from "@assets/banners/people.png";
 
 export const Background = styled.div`
   height: 100vh;

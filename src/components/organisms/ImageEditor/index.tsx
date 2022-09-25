@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { Dropzone } from "../../molecules";
+import { configPinturaEditor } from "@lib/pintura";
 
-import { configPinturaEditor } from "../../../lib/pintura";
+import { Dropzone } from "@components/molecules";
 
 import { EditorContainer } from "./styles";
 

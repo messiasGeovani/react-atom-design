@@ -1,7 +1,8 @@
 import React from "react";
-import { colors, normalizeObject, spacer } from "../../../utils";
-import { IColorProps } from "../../../utils/colors";
-import { ISpacerProps } from "../../../utils/spacer";
+
+import { colors, normalizeObject, spacer } from "@utils/index";
+import { IColorProps } from "@utils/colors";
+import { ISpacerProps } from "@utils/spacer";
 
 export function ThunderIcon({ size = 24, color = "primary", ...props }) {
   const spacingOptions = spacer(props as ISpacerProps);
