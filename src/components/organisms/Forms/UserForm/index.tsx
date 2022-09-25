@@ -10,7 +10,7 @@ import { addProfile } from "@store/Profile.store";
 import { AnimatedDiv } from "@components/Animated";
 import { Input, Separator, SuccessButton, Typography } from "@components/atoms";
 import { BaseDiv, BaseForm, BaseSpan } from "@components/Base";
-import { ImageEditor } from "@components/organisms/ImageEditor";
+import { ImageSelector } from "@components/organisms/ImageSelector";
 import { Modal } from "@components/molecules";
 
 import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
@@ -59,7 +59,7 @@ export function UserForm() {
       onSubmit={handleSaveProfile}
     >
       <Modal opened={openModal}>
-        <ImageEditor onProcess={handleProcessImage} />
+        <ImageSelector onProcess={handleProcessImage} />
       </Modal>
       <BaseDiv fullWidth>
         <Typography textAlign="center" bold size={18} color="gray">

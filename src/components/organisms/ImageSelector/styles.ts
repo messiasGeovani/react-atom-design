@@ -9,11 +9,4 @@ export const EditorContainer = styled.div`
     --color-background: 255, 255, 255;
     --color-foreground: 0, 0, 0;
   }
-
-  @media (prefers-color-scheme: dark) {
-    .pintura-editor {
-      --color-background: 0, 0, 0;
-      --color-foreground: 255, 255, 255;
-    }
-  }
 `;

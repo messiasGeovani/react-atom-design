@@ -6,11 +6,11 @@ import { Dropzone } from "@components/molecules";
 
 import { EditorContainer } from "./styles";
 
-interface IIMageEditorProps {
+interface IIMageSelectorProps {
   onProcess: (image: string) => void;
 }
 
-export function ImageEditor({ onProcess }: IIMageEditorProps) {
+export function ImageSelector({ onProcess }: IIMageSelectorProps) {
   const [openEditor, setOpenEditor] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 

@@ -1,4 +1,4 @@
-import { ImageEditor } from "./ImageEditor";
+import { ImageSelector } from "./ImageSelector";
 
-export { ImageEditor };
+export { ImageSelector };
 export * from './Forms'
