@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router-dom";
-
 import { useAuth } from "@context/Auth";
 
 import { useAppDispatch } from "@store/hooks";
