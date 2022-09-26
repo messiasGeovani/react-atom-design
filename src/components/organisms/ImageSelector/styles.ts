@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const EditorContainer = styled.div`
+  @import url('@lib/pintura/pintura.css');
+
   width: 95vw;
   height: 80vh;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 import { media } from "@utils/medias";
 
@@ -15,7 +16,7 @@ export const Background = styled.div`
   `}
 `;
 
-export const LoginBanner = styled.img.attrs({
+export const LoginBanner = styled(Image).attrs({
   src: peopleBannerImg,
 })`
   max-height: 60%;

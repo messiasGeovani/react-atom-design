@@ -4,8 +4,6 @@ import {
   createDefaultImageWriter,
 } from "./pintura";
 
-import "./pintura.css";
-
 interface IConfigPinturaEditorParams {
   elementRef: any;
   selectedImage: string;
@@ -34,7 +32,7 @@ export function configPinturaEditor({
   if (!elementRef) {
     return;
   }
-
+  
   const editor: any = appendDefaultEditor(
     elementRef,
     getEditorOptions(selectedImage)

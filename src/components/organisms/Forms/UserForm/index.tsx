@@ -15,14 +15,15 @@ import { Modal } from "@components/molecules";
 
 import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
 
-export function UserForm() {
-  const [openModal, setOpenModal] = useState(false);
-  const history = useHistory();
+interface IUserFormProps {
+  handleSubmit: () => void;
+}
 
+export function UserForm({ handleSubmit }: IUserFormProps) {
   const dispatch = useAppDispatch();
-
   const { fields } = useAuth();
 
+  const [openModal, setOpenModal] = useState(false);
   const [profileFields, setProfileFields] = useState({
     firstName: "",
     lastName: "",
@@ -40,7 +41,7 @@ export function UserForm() {
   const handleSaveProfile = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(addProfile(profileFields));
-    history.goBack();
+    handleSubmit();
   };
 
   const handleProcessImage = (image: string) => {

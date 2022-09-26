@@ -6,6 +6,7 @@ import { IFlexboxProps } from "@utils/flexbox";
 import { IFontProps } from "@utils/fonts";
 import { IResizerProps } from "@utils/resizer";
 import { ISpacerProps } from "@utils/spacer";
+import Image from "next/image";
 
 type TDefaultAttrsProps = ISpacerProps & IResizerProps;
 type TFlexAttrsProps = TDefaultAttrsProps & IFlexboxProps;
@@ -41,4 +42,4 @@ export const BaseButton = styled.button<TDefaultAttrsProps>(defaultAttrs);
 
 export const BaseForm = styled.form<TFlexAttrsProps>(flexAttrs);
 
-export const BaseImg = styled.img<TDefaultAttrsProps>(defaultAttrs);
+export const BaseImg = styled(Image).attrs<TDefaultAttrsProps>(defaultAttrs);

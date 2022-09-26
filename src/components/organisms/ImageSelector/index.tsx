@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { configPinturaEditor } from "@lib/pintura";
-
 import { Dropzone } from "@components/molecules";
 
 import { EditorContainer } from "./styles";
@@ -38,15 +36,21 @@ export function ImageSelector({ onProcess }: IIMageSelectorProps) {
   }, []);
 
   useEffect(() => {
-    if (!openEditor) {
-      return;
+    async function configEditor() {
+      if (!openEditor) {
+        return;
+      }
+
+      const { configPinturaEditor } = await import("@lib/pintura");
+
+      configPinturaEditor({
+        elementRef: containerRef.current,
+        selectedImage,
+        onProcess,
+      });
     }
 
-    configPinturaEditor({
-      elementRef: containerRef.current,
-      selectedImage,
-      onProcess,
-    });
+    configEditor();
   }, [openEditor, onProcess, selectedImage]);
 
   if (!openEditor) {

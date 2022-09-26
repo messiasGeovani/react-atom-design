@@ -1,6 +1,5 @@
 import React from "react";
-
-import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 
 import { AnimatedDiv } from "@components/Animated";
 import { Box } from "@components/atoms";
@@ -10,13 +9,13 @@ import { AuthForm } from "@components/organisms";
 import { Background, LoginBanner } from "./styles";
 
 export default function SignUp() {
-  const history = useHistory();
+  const router = useRouter();
 
-  const redirectToLogin = () => history.goBack();
+  const redirectToLogin = () => router.back();
 
   const handleSignUp = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    history.push("/profile");
+    router.push("/profile");
   };
 
   return (
