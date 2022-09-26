@@ -41,6 +41,7 @@ export function ImageSelector({ onProcess }: IIMageSelectorProps) {
         return;
       }
 
+      import("@lib/pintura/pintura.css");
       const { configPinturaEditor } = await import("@lib/pintura");
 
       configPinturaEditor({

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { media } from "@utils/medias";
 
-import peopleBannerImg from "@assets/banners/people.png";
+import peopleBannerImg from "/public/assets/banners/people.png";
 
 export const Background = styled.div`
   height: 100vh;

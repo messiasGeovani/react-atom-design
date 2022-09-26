@@ -4,7 +4,12 @@
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  /* config options here */
+  experimental: {
+    forceSwcTransforms: true,
+  },
+  images: {
+    domains: ['upload.wikimedia.org'],
+  },
 };
 
 module.exports = nextConfig;

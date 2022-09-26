@@ -42,4 +42,4 @@ export const BaseButton = styled.button<TDefaultAttrsProps>(defaultAttrs);
 
 export const BaseForm = styled.form<TFlexAttrsProps>(flexAttrs);
 
-export const BaseImg = styled(Image).attrs<TDefaultAttrsProps>(defaultAttrs);
+export const BaseImg = styled(Image)<ISpacerProps>(spacer);

@@ -7,7 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body, #root {
+  html, body, #root, #__next {
     height: 100%;
   }
 

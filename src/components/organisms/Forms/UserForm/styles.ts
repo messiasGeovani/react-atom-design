@@ -12,13 +12,13 @@ export const ProfileImgWrapper = styled(AnimatedSpan)`
 
   &:hover {
     transition: all 0.5s;
-    
+
     > svg {
       display: initial;
     }
 
     &::after {
-      content: '';
+      content: "";
       width: 100%;
       height: 100%;
       border-radius: 50px;
@@ -30,9 +30,10 @@ export const ProfileImgWrapper = styled(AnimatedSpan)`
   }
 `;
 
-export const ProfileImg = styled(BaseImg)`
-  height: 90px;
-  width: 90px;
+export const ProfileImg = styled(BaseImg).attrs({
+  height: 90,
+  width: 90,
+})`
   border-radius: 50px;
   cursor: pointer;
 `;

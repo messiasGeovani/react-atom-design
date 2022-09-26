@@ -13,7 +13,13 @@ export default function Profile() {
   };
 
   return (
-    <Background flex alignItems="center" justifyContent="center">
+    <Background
+      flex
+      alignItems="center"
+      justifyContent="center"
+      fullWidth
+      fullHeight
+    >
       <AnimatedBox
         duration={0.5}
         animation="fadeInZoomIn"
