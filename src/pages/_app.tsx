@@ -1,6 +1,6 @@
 import { AuthProvider } from "@context/Auth";
-import store from "@store/index";
-import GlobalStyles from "@styles/GlobalStyles";
+import store from "@/store";
+import GlobalStyles from "@/styles/GlobalStyles";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 

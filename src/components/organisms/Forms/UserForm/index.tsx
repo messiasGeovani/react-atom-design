@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { useAuth } from "@context/Auth";
 
-import { useAppDispatch } from "@store/hooks";
-import { addProfile } from "@store/Profile.store";
+import { useAppDispatch } from "@/store/hooks";
+import { addProfile } from "@/store/Profile.store";
 
 import { AnimatedDiv } from "@components/Animated";
 import { Input, Separator, SuccessButton, Typography } from "@components/atoms";

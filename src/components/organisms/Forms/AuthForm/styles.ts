@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { media } from "@utils/index";
+import { media } from "@/utils";
 import { AnimatedDiv } from "@components/Animated";
 import { BaseForm } from "@components/Base";
 

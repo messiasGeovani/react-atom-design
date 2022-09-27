@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
-import Router from "next/router";
+
+import { useRouter } from "next/router";
 
 function App() {
-  useEffect(() => {
-    const { pathname } = Router;
+  const router = useRouter();
 
-    if (pathname === "/") {
-      Router.push("/login");
-    }
-  }, []);
+  useEffect(() => {
+    router.push("/login");
+  }, [router]);
 
   return <div />;
 }

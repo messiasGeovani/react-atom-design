@@ -1,6 +1,6 @@
 import styled, { css, SimpleInterpolation } from "styled-components";
 
-import * as Animations from "@styles/Animations";
+import * as Animations from "@/styles/Animations";
 
 import { Box } from "@components/atoms";
 import { BaseDiv, BaseSpan } from "@components/Base";

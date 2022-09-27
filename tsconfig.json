@@ -1,12 +1,6 @@
 {
-  "include": [
-    "src",
-    "src/index.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "build/**/*"
-  ],
+  "include": ["src"],
+  "exclude": ["node_modules", "build/**/*"],
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
@@ -98,11 +92,7 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noEmit": true,
     "incremental": true,
     "moduleResolution": "node",

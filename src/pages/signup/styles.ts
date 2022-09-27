@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-import { media } from "@utils/medias";
+import { media } from "@/utils/medias";
 
 import peopleBannerImg from "/public/assets/banners/people.png";
 

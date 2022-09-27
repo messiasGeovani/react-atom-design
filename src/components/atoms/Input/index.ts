@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { media } from "@utils/index";
+import { media } from "@/utils";
 
 import { BaseInput } from "@components/Base";
 
