@@ -1,7 +1,7 @@
 import {
   appendDefaultEditor,
   createDefaultImageReader,
-  createDefaultImageWriter,
+  createDefaultImageWriter
 } from "./pintura";
 
 interface IConfigPinturaEditorParams {
@@ -32,7 +32,7 @@ export function configPinturaEditor({
   if (!elementRef) {
     return;
   }
-  
+
   const editor: any = appendDefaultEditor(
     elementRef,
     getEditorOptions(selectedImage)

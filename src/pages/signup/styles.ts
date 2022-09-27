@@ -18,6 +18,7 @@ export const Background = styled.div`
 
 export const LoginBanner = styled(Image).attrs({
   src: peopleBannerImg,
+  priority: true,
 })`
   max-height: 60%;
 `;

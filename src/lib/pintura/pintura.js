@@ -6514,18 +6514,16 @@ function $l(e, t, o) {
         L && R.drawRect(g, 0, !1, !1, [0, 0, 0, 0], u(a, S)),
         R.enablePreviewStencil(),
         se.push(
-          ...[...P]
-            .reverse()
-            .map((e) =>
-              G({
-                ...e,
-                enableOverlay: x && T,
-                enableBlend: C,
-                mask: g,
-                maskOpacity: f,
-                overlayColor: $,
-              })
-            )
+          ...[...P].reverse().map((e) =>
+            G({
+              ...e,
+              enableOverlay: x && T,
+              enableBlend: C,
+              mask: g,
+              maskOpacity: f,
+              overlayColor: $,
+            })
+          )
         ),
         x ||
           (R.applyPreviewStencil(),

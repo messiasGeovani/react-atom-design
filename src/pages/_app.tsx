@@ -1,9 +1,10 @@
-import React from "react";
-import { AppProps } from "next/app";
-import { Provider } from "react-redux";
 import { AuthProvider } from "@context/Auth";
 import store from "@store/index";
 import GlobalStyles from "@styles/GlobalStyles";
+import { AppProps } from "next/app";
+import { Provider } from "react-redux";
+
+import "@lib/pintura/pintura.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
