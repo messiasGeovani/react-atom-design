@@ -6,12 +6,5 @@ import { colors } from "./colors";
 import { media } from "./medias";
 import { normalizeObject } from "./objects";
 
-export {
-  spacer,
-  resizer,
-  flexbox,
-  fontConfig,
-  colors,
-  media,
-  normalizeObject,
-};
+export { spacer, resizer, flexbox, fontConfig, colors, media, normalizeObject };
+export * from "./tests";

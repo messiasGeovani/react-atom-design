@@ -18,6 +18,7 @@ import { BaseSpan } from "@components/Base";
 import { Hidden } from "@components/Helpers";
 
 import { FormWrapper, Separator } from "./styles";
+import { testAttrs } from "./testAttrs";
 
 interface IAuthFormProps {
   isRegister?: boolean;
@@ -70,6 +71,7 @@ export function AuthForm({
         fullWidth
         value={fields.confirmPassword}
         onChange={handleChangeField("confirmPassword")}
+        data-test={testAttrs.confirmPasswordInput}
       />
     </AnimatedDiv>
   );
@@ -117,6 +119,7 @@ export function AuthForm({
         id="acceptTerms"
         checked={fields.acceptTerms}
         onChange={handleCheckField("acceptTerms")}
+        data-test={testAttrs.accepsTermsCheckbox}
       />
       <Label semibold htmlFor="acceptTerms">
         Eu aceito os &nbsp;
@@ -188,6 +191,7 @@ export function AuthForm({
           fullWidth
           value={fields.email}
           onChange={handleChangeField("email")}
+          data-test={testAttrs.emailInput}
         />
       </AnimatedDiv>
       <AnimatedDiv
@@ -206,6 +210,7 @@ export function AuthForm({
           fullWidth
           value={fields.password}
           onChange={handleChangeField("password")}
+          data-test={testAttrs.passwordInput}
         />
       </AnimatedDiv>
       {ConfirmPasswordInput}
@@ -230,7 +235,13 @@ export function AuthForm({
         fillMode="backwards"
       >
         <Typography semibold>{texts.alternateAuthType[0]} &nbsp;</Typography>
-        <Typography color="primary" bold clickable onClick={alternateForm}>
+        <Typography
+          color="primary"
+          bold
+          clickable
+          data-test={testAttrs.alternateForm}
+          onClick={alternateForm}
+        >
           {texts.alternateAuthType[1]}
         </Typography>
       </AnimatedDiv>
