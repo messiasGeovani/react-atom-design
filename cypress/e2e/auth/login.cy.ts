@@ -1,13 +1,8 @@
 /// <reference types="cypress" />
 
-describe("Login screen", () => {
-  const elements = {
-    link: "[data-test='AuthForm:link']",
-    emailInput: "[data-test='AuthForm:email-input']",
-    passwordInput: "[data-test='AuthForm:password-input']",
-    submitButton: "button[type='submit']",
-  };
+import { elements } from "./elements";
 
+describe("Login screen", () => {
   const data = {
     email: "messias@email.com",
     password: "1234",
@@ -15,6 +10,11 @@ describe("Login screen", () => {
 
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
+  });
+
+  it("should get correct input types", () => {
+    cy.get("input[type=email]").should("exist");
+    cy.get("input[type=password]").should("exist");
   });
 
   it("should not fill all required fields and block the signup process", () => {

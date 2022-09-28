@@ -186,6 +186,7 @@ export function AuthForm({
           Email*
         </Typography>
         <Input
+          type="email"
           required
           placeholder="mail@website.com"
           fullWidth
