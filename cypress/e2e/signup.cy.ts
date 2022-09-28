@@ -1,12 +1,14 @@
 /// <reference types="cypress" />
 
 describe("Signup screen", () => {
-  const link = "[data-test='AuthForm:link']";
-
-  const emailInput = "[data-test='AuthForm:email-input']";
-  const passwordInput = "[data-test='AuthForm:password-input']";
-  const confirmPasswordInput = "[data-test='AuthForm:confirm-password-input']";
-  const accepTermsCheckbox = "[data-test='AuthForm:accept-terms-checkbox']";
+  const elements = {
+    link: "[data-test='AuthForm:link']",
+    emailInput: "[data-test='AuthForm:email-input']",
+    passwordInput: "[data-test='AuthForm:confirm-password-input']",
+    confirmPasswordInput: "[data-test='AuthForm:confirm-password-input']",
+    accepTermsCheckbox: "[data-test='AuthForm:accept-terms-checkbox']",
+    submitButton: "button[type='submit']",
+  };
 
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
@@ -16,14 +18,17 @@ describe("Signup screen", () => {
     const login = "messias@email.com";
     const password = "1234";
 
-    cy.get(link).click();
+    cy.get(elements.link).click();
+    cy.url().should("include", "/signup");
 
-    cy.get(emailInput).type(`${login}`);
-    cy.get(passwordInput).type(`${password}`);
-    cy.get(confirmPasswordInput).type(`${password}`);
-    cy.get(accepTermsCheckbox).check();
-    cy.get("button[type='submit']").click();
     cy.wait(500);
+
+    cy.get(elements.emailInput).type(`${login}`);
+    cy.get(elements.passwordInput).type(`${password}`);
+    cy.get(elements.confirmPasswordInput).type(`${password}`);
+    cy.get(elements.accepTermsCheckbox).check();
+    cy.get(elements.submitButton).click();
+
     cy.url().should("include", "/profile");
   });
 });
