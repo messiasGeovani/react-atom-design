@@ -1,24 +1,28 @@
 import { createTestAttribute } from "@/utils";
 
-export const testAttrs = {
+const block = "AuthForm";
+
+const testAttrs = {
   alternateForm: createTestAttribute({
-    block: "AuthForm",
+    block,
     element: "link",
   }),
   emailInput: createTestAttribute({
-    block: "AuthForm",
+    block,
     element: "email input",
   }),
   passwordInput: createTestAttribute({
-    block: "AuthForm",
+    block,
     element: "password input",
   }),
   confirmPasswordInput: createTestAttribute({
-    block: "AuthForm",
+    block,
     element: "confirm password input",
   }),
   accepsTermsCheckbox: createTestAttribute({
-    block: "AuthForm",
+    block,
     element: "accept terms checkbox",
   }),
 };
+
+export default testAttrs;

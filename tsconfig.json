@@ -1,5 +1,5 @@
 {
-  "include": ["src"],
+  "include": ["src", "**/*.ts"],
   "exclude": ["node_modules", "build/**/*"],
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
@@ -29,7 +29,9 @@
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
     // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
-    // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+    "typeRoots": [
+      "./cypress/support"
+    ] /* Specify multiple folders that act like './node_modules/@types'. */,
     "types": [
       "cypress",
       "node"

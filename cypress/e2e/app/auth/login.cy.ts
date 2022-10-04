@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
-import { elements } from "./elements";
+import elements from "./elements";
 
 describe("Login screen", () => {
+  const { submitButton, emailInput } = elements;
+
   const data = {
     email: "messias@email.com",
     password: "1234",
@@ -12,7 +14,7 @@ describe("Login screen", () => {
     cy.visit("http://localhost:3000/");
   });
 
-  it("should get correct input types", () => {
+  it("should verify if auth inputs exists", () => {
     cy.get("input[type=email]").should("exist");
     cy.get("input[type=password]").should("exist");
   });
@@ -20,19 +22,18 @@ describe("Login screen", () => {
   it("should not fill all required fields and block the signup process", () => {
     cy.url().should("include", "/login");
 
-    cy.get(elements.submitButton).click();
+    cy.get(submitButton).click();
 
     cy.get("form :invalid").should("exist");
 
-    cy.get(elements.emailInput).type(`${data.email}{enter}`);
+    cy.getElement(emailInput).type(`${data.email}{enter}`);
     cy.get("form :invalid").should("exist");
 
     cy.url().should("include", "/login");
   });
 
   it("should fill login form fields and go to profile screen", () => {
-    cy.get(elements.emailInput).type(`${data.email}`);
-    cy.get(elements.passwordInput).type(`${data.password}{enter}`);
+    cy.login(data.email, data.password);
     cy.url().should("include", "/profile");
   });
 });

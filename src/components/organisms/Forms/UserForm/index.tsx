@@ -12,6 +12,7 @@ import { ImageSelector } from "@components/organisms/ImageSelector";
 import { Modal } from "@components/molecules";
 
 import { EditIcon, ProfileImg, ProfileImgWrapper } from "./styles";
+import testAttrs from "./testAttrs";
 
 interface IUserFormProps {
   handleSubmit: () => void;
@@ -78,7 +79,10 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
             fillMode="both"
             onClick={() => setOpenModal(true)}
           >
-            <ProfileImg src={profileFields.image} />
+            <ProfileImg
+              src={profileFields.image}
+              data-test={testAttrs.profileImg}
+            />
             <EditIcon size={28} />
           </ProfileImgWrapper>
         </BaseDiv>
@@ -98,6 +102,7 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
               value={profileFields.firstName}
               onChange={handleChangeProfileField("firstName")}
               placeholder="Isabelly"
+              data-test={testAttrs.firstNameInput}
             />
           </BaseSpan>
           <span>
@@ -107,6 +112,7 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
               value={profileFields.lastName}
               onChange={handleChangeProfileField("lastName")}
               placeholder="Dias"
+              data-test={testAttrs.lastNameInput}
             />
           </span>
         </AnimatedDiv>
@@ -125,6 +131,7 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
             onChange={handleChangeProfileField("email")}
             placeholder="mail@website.com"
             fullWidth
+            data-test={testAttrs.emailInput}
           />
         </AnimatedDiv>
         <AnimatedDiv
@@ -143,6 +150,7 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
             type="password"
             placeholder="Min. 8 caracteres"
             fullWidth
+            data-test={testAttrs.passwordInput}
           />
         </AnimatedDiv>
         <BaseDiv mt={1}>
@@ -152,7 +160,7 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
             animation="fadeInRight"
             fillMode="both"
           >
-            <SuccessButton fullWidth>Salvar Perfil</SuccessButton>
+            <SuccessButton type="submit" fullWidth>Salvar Perfil</SuccessButton>
           </AnimatedDiv>
           <AnimatedDiv
             delay={0.1}
@@ -160,7 +168,14 @@ export function UserForm({ handleSubmit }: IUserFormProps) {
             animation="fadeInRight"
             fillMode="both"
           >
-            <Typography bold clickable color="danger" textAlign="center" mt={1}>
+            <Typography
+              bold
+              clickable
+              color="danger"
+              textAlign="center"
+              mt={1}
+              data-test={testAttrs.cancelButton}
+            >
               Cancelar
             </Typography>
           </AnimatedDiv>

@@ -18,7 +18,7 @@ import { BaseSpan } from "@components/Base";
 import { Hidden } from "@components/Helpers";
 
 import { FormWrapper, Separator } from "./styles";
-import { testAttrs } from "./testAttrs";
+import testAttrs from "./testAttrs";
 
 interface IAuthFormProps {
   isRegister?: boolean;
