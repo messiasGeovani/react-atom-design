@@ -1,16 +1,7 @@
-/// <reference types="cypress" />
-
 import elements from "./elements";
 
 describe("Profile page", () => {
-  const {
-    profileImg,
-    firstNameInput,
-    lastNameInput,
-    emailInput,
-    passwordInput,
-    cancelButton,
-  } = elements;
+  const { firstNameInput, lastNameInput, emailInput, passwordInput } = elements;
 
   const auth = {
     email: "teste@meil.com",

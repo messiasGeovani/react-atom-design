@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe("Navigation", () => {
   const link = "[data-test='AuthForm:link']";
 
@@ -18,14 +16,14 @@ describe("Navigation", () => {
 
     cy.url().should("include", "/signup");
     cy.wait(500);
-    
+
     cy.get("h1").contains("Registre-se");
   });
 
   it("should navigate to signup page and back to login page", () => {
     cy.url().should("include", "/login");
     cy.get(link).click();
-    
+
     cy.url().should("include", "/signup");
     cy.wait(500);
 
@@ -36,3 +34,5 @@ describe("Navigation", () => {
     cy.get("h1").contains("Login");
   });
 });
+
+export {};

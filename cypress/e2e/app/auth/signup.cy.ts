@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import elements from "./elements";
 
 describe("Signup screen", () => {
