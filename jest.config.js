@@ -26,7 +26,7 @@ const customJestConfig = {
     "!<rootDir>/*.config.js",
     "!<rootDir>/coverage/**",
   ],
-  testMatch: ["<rootDir>/__tests__/**/?(*.)+(spec|test).[tj]s?"],
+  testMatch: ["<rootDir>/__tests__/src/**/?(*.)+(spec|test).[tj]s?"],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
@@ -44,6 +44,7 @@ const customJestConfig = {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@context/(.*)$": "<rootDir>/src/context/$1",
     "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^__tests__/(.*)$": "<rootDir>/__tests__/$1",
   },
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   transform: {
