@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import elements from "./elements";
 
 describe("Profile page", () => {

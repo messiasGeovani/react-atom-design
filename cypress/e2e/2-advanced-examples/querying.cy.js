@@ -87,7 +87,7 @@ context('Querying', () => {
 
   it('best practices - selecting elements', () => {
     // https://on.cypress.io/best-practices#Selecting-Elements
-    cy.get('[data-cy=best-practices-selecting-elements]').within(() => {
+    cy.get('[data-test=best-practices-selecting-elements]').within(() => {
       // Worst - too generic, no context
       cy.get('button').click()
 
@@ -108,7 +108,7 @@ context('Querying', () => {
       cy.contains('Submit').click()
 
       // Best. Insulated from all changes.
-      cy.get('[data-cy=submit]').click()
+      cy.get('[data-test=submit]').click()
     })
   })
 })

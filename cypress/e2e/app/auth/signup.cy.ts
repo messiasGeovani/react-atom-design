@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import elements from "./elements";
 
 describe("Signup screen", () => {
@@ -20,7 +22,7 @@ describe("Signup screen", () => {
   });
 
   it("should not fill all required fields and block the signup process", () => {
-    cy.get(link).click();
+    cy.getElement(link).click();
     cy.url().should("include", "/signup");
 
     cy.wait(500);
@@ -29,35 +31,35 @@ describe("Signup screen", () => {
 
     cy.get("form :invalid").should("exist");
 
-    cy.get(emailInput).type(`${data.email}{enter}`);
+    cy.getElement(emailInput).type(`${data.email}{enter}`);
     cy.get("form :invalid").should("exist");
 
-    cy.get(passwordInput).type(`${data.password}{enter}`);
+    cy.getElement(passwordInput).type(`${data.password}{enter}`);
     cy.get("form :invalid").should("exist");
 
-    cy.get(confirmPasswordInput).type(`${data.password}{enter}`);
+    cy.getElement(confirmPasswordInput).type(`${data.password}{enter}`);
     cy.get("form :invalid").should("exist");
 
     cy.url().should("include", "/signup");
   });
 
   it("should fill login form fields and go to profile screen", () => {
-    cy.get(link).click();
+    cy.getElement(link).click();
     cy.url().should("include", "/signup");
 
     cy.wait(500);
 
-    cy.get(emailInput).type(`${data.email}`).should("have.value", data.email);
+    cy.getElement(emailInput).type(`${data.email}`).should("have.value", data.email);
 
-    cy.get(passwordInput)
+    cy.getElement(passwordInput)
       .type(`${data.password}`)
       .should("have.value", data.password);
 
-    cy.get(confirmPasswordInput)
+    cy.getElement(confirmPasswordInput)
       .type(`${data.password}`)
       .should("have.value", data.password);
 
-    cy.get(accepTermsCheckbox).check();
+    cy.getElement(accepTermsCheckbox).check();
     cy.get(submitButton).click();
 
     cy.url().should("include", "/profile");

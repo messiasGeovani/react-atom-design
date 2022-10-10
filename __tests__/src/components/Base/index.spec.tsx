@@ -3,37 +3,60 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "__tests__/config";
 
-import { BaseDiv, BaseButton } from "@components/Base";
-import { defaultAttrs } from "__tests__/config/baseProps";
+import {
+  BaseDiv,
+  BaseButton,
+  TFlexAttrsProps,
+  TDefaultAttrsProps,
+} from "@components/Base";
 
-function checkStyles(props: any) {
-  
-}
+import { defaultAttrs, flexAttrs } from "__tests__/config/baseProps";
+
+import { flexbox, resizer, spacer } from "@/utils";
 
 describe("<BaseDiv />", () => {
+  const testId = "base-div";
+
   it("loads and displays any content", () => {
     const divContent = "Base Div";
+    const match = new RegExp(`^${divContent}$`);
 
-    render(<BaseDiv>{divContent}</BaseDiv>);
+    render(<BaseDiv data-testid={testId}>{divContent}</BaseDiv>);
 
-    expect(screen.getByText(divContent)).toBeInTheDocument();
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
+    expect(screen.getByTestId(testId)).toHaveTextContent(match);
   });
 
-  it("should check if elements props is working", () => {
-    const props = defaultAttrs;
-    render(<BaseDiv {...props} />);
+  it("check if element style props is working", () => {
+    const props = flexAttrs as TFlexAttrsProps;
 
-    expect(BaseDiv).toHaveBeenCalledWith(props);
+    render(<BaseDiv data-testid={testId} {...props} />);
+
+    expect(screen.getByTestId(testId)).toHaveStyle(resizer(props));
+    expect(screen.getByTestId(testId)).toHaveStyle(spacer(props));
+    expect(screen.getByTestId(testId)).toHaveStyle(flexbox(props));
   });
 });
 
 describe("<BaseButton />", () => {
+  const testId = "base-button";
+
   it("loads and displays any content", () => {
     const buttonTextContent = "Base Button";
     const match = new RegExp(`^${buttonTextContent}$`);
 
-    render(<BaseButton>{buttonTextContent}</BaseButton>);
+    render(<BaseButton data-testid={testId}>{buttonTextContent}</BaseButton>);
 
-    expect(screen.getByRole("button")).toHaveTextContent(match);
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
+    expect(screen.getByTestId(testId)).toHaveTextContent(match);
+  });
+
+  it("check if element style props is working", () => {
+    const props = defaultAttrs as TDefaultAttrsProps;
+
+    render(<BaseButton data-testid={testId} {...props} />);
+
+    expect(screen.getByTestId(testId)).toHaveStyle(resizer(props));
+    expect(screen.getByTestId(testId)).toHaveStyle(spacer(props));
   });
 });

@@ -8,9 +8,9 @@ import { IResizerProps } from "@/utils/resizer";
 import { ISpacerProps } from "@/utils/spacer";
 import Image from "next/image";
 
-type TDefaultAttrsProps = ISpacerProps & IResizerProps;
-type TFlexAttrsProps = TDefaultAttrsProps & IFlexboxProps;
-type TTextAttrsProps = TDefaultAttrsProps & IFontProps & IColorProps;
+export type TDefaultAttrsProps = ISpacerProps & IResizerProps;
+export type TFlexAttrsProps = TDefaultAttrsProps & IFlexboxProps;
+export type TTextAttrsProps = TDefaultAttrsProps & IFontProps & IColorProps;
 
 const defaultAttrs = (props: TDefaultAttrsProps) => ({
   ...resizer(props as IResizerProps),
