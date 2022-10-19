@@ -47,7 +47,7 @@ export const flexAttrs = {
   ...flexbox,
 };
 
-export const testAttrs = {
+export const textAttrs = {
   ...defaultAttrs,
   ...fontConfig,
   ...colors,

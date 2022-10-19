@@ -7,14 +7,17 @@ import {
   BaseDiv,
   BaseSpan,
   BaseInput,
+  BaseText,
   BaseButton,
   TFlexAttrsProps,
   TDefaultAttrsProps,
+  TTextAttrsProps,
 } from "@components/Base";
 
-import { defaultAttrs, flexAttrs } from "__tests__/config/baseProps";
+import { defaultAttrs, flexAttrs, textAttrs } from "__tests__/config/baseProps";
 
-import { flexbox, resizer, spacer } from "@/utils";
+import { colors, flexbox, fontConfig, resizer, spacer } from "@/utils";
+import { testRenderization, testStyles } from "__tests__/config/testUtils";
 
 describe("<BaseDiv />", () => {
   const testId = "base-div";
@@ -23,20 +26,14 @@ describe("<BaseDiv />", () => {
     const divContent = "Base Div";
     const match = new RegExp(`^${divContent}$`);
 
-    render(<BaseDiv data-testid={testId}>{divContent}</BaseDiv>);
-
-    expect(screen.getByTestId(testId)).toBeInTheDocument();
-    expect(screen.getByTestId(testId)).toHaveTextContent(match);
+    testRenderization(testId, BaseDiv, divContent, match);
   });
 
   it("check if element style props is working", () => {
     const props = flexAttrs as TFlexAttrsProps;
+    const styleUtils = [resizer, spacer, flexbox];
 
-    render(<BaseDiv data-testid={testId} {...props} />);
-
-    expect(screen.getByTestId(testId)).toHaveStyle(resizer(props));
-    expect(screen.getByTestId(testId)).toHaveStyle(spacer(props));
-    expect(screen.getByTestId(testId)).toHaveStyle(flexbox(props));
+    testStyles(testId, BaseDiv, props, styleUtils);
   });
 });
 
@@ -44,23 +41,17 @@ describe("<BaseSpan />", () => {
   const testId = "base-span";
 
   it("loads and displays any content", () => {
-    const divContent = "Base Span";
-    const match = new RegExp(`^${divContent}$`);
+    const spanContent = "Base Span";
+    const match = new RegExp(`^${spanContent}$`);
 
-    render(<BaseSpan data-testid={testId}>{divContent}</BaseSpan>);
-
-    expect(screen.getByTestId(testId)).toBeInTheDocument();
-    expect(screen.getByTestId(testId)).toHaveTextContent(match);
+    testRenderization(testId, BaseSpan, spanContent, match);
   });
 
   it("check if element style props is working", () => {
     const props = flexAttrs as TFlexAttrsProps;
+    const styleUtils = [resizer, spacer, flexbox];
 
-    render(<BaseSpan data-testid={testId} {...props} />);
-
-    expect(screen.getByTestId(testId)).toHaveStyle(resizer(props));
-    expect(screen.getByTestId(testId)).toHaveStyle(spacer(props));
-    expect(screen.getByTestId(testId)).toHaveStyle(flexbox(props));
+    testStyles(testId, BaseSpan, props, styleUtils);
   });
 });
 
@@ -68,9 +59,7 @@ describe("<BaseInput />", () => {
   const testId = "base-input";
 
   it("loads and displays any content", () => {
-    render(<BaseInput data-testid={testId} />);
-
-    expect(screen.getByTestId(testId)).toBeInTheDocument();
+    testRenderization(testId, BaseInput);
   });
 
   it("should change input value", () => {
@@ -87,10 +76,27 @@ describe("<BaseInput />", () => {
 
   it("check if element style props is working", () => {
     const props = defaultAttrs as TDefaultAttrsProps;
+    const styleUtils = [resizer];
 
-    render(<BaseInput data-testid={testId} {...props} />);
+    testStyles(testId, BaseInput, props, styleUtils);
+  });
+});
 
-    expect(screen.getByTestId(testId)).toHaveStyle(resizer(props));
+describe("<BaseText />", () => {
+  const testId = "base-text";
+
+  it("loads and displays any content", () => {
+    const textContent = "Base Text";
+    const match = new RegExp(`^${textContent}$`);
+
+    testRenderization(testId, BaseText, textContent, match);
+  });
+
+  it("check if element style props is working", () => {
+    const props = textAttrs as TTextAttrsProps;
+    const styleUtils = [resizer, spacer, fontConfig, colors];
+
+    testStyles(testId, BaseText, props, styleUtils);
   });
 });
 
@@ -98,20 +104,16 @@ describe("<BaseButton />", () => {
   const testId = "base-button";
 
   it("loads and displays any content", () => {
-    const buttonTextContent = "Base Button";
-    const match = new RegExp(`^${buttonTextContent}$`);
+    const buttonContent = "Base Button";
+    const match = new RegExp(`^${buttonContent}$`);
 
-    render(<BaseButton data-testid={testId}>{buttonTextContent}</BaseButton>);
-
-    expect(screen.getByTestId(testId)).toBeInTheDocument();
-    expect(screen.getByTestId(testId)).toHaveTextContent(match);
+    testRenderization(testId, BaseButton, buttonContent, match);
   });
 
   it("check if element style props is working", () => {
     const props = defaultAttrs as TDefaultAttrsProps;
+    const styleUtils = [resizer];
 
-    render(<BaseButton data-testid={testId} {...props} />);
-
-    expect(screen.getByTestId(testId)).toHaveStyle(resizer(props));
+    testStyles(testId, BaseButton, props, styleUtils);
   });
 });
