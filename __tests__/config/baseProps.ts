@@ -52,3 +52,5 @@ export const textAttrs = {
   ...fontConfig,
   ...colors,
 };
+
+export const imgAttrs = spacer;

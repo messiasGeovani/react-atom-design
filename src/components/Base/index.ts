@@ -41,5 +41,3 @@ export const BaseLabel = styled.label<TTextAttrsProps>(textAttrs);
 export const BaseButton = styled.button<TDefaultAttrsProps>(defaultAttrs);
 
 export const BaseForm = styled.form<TFlexAttrsProps>(flexAttrs);
-
-export const BaseImg = styled(Image)<ISpacerProps>(spacer);

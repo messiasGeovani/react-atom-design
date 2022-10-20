@@ -1,16 +1,17 @@
-import React from "react";
 import "@testing-library/jest-dom";
 
 import { render, screen, userEvent } from "__tests__/config";
 
 import {
-  BaseDiv,
-  BaseSpan,
-  BaseInput,
-  BaseText,
   BaseButton,
-  TFlexAttrsProps,
+  BaseDiv,
+  BaseForm,
+  BaseInput,
+  BaseLabel,
+  BaseSpan,
+  BaseText,
   TDefaultAttrsProps,
+  TFlexAttrsProps,
   TTextAttrsProps,
 } from "@components/Base";
 
@@ -100,6 +101,24 @@ describe("<BaseText />", () => {
   });
 });
 
+describe("<BaseLabel />", () => {
+  const testId = "base-label";
+
+  it("loads and displays any content", () => {
+    const textContent = "Base Label";
+    const match = new RegExp(`^${textContent}$`);
+
+    testRenderization(testId, BaseLabel, textContent, match);
+  });
+
+  it("check if element style props is working", () => {
+    const props = textAttrs as TTextAttrsProps;
+    const styleUtils = [resizer, spacer, fontConfig, colors];
+
+    testStyles(testId, BaseLabel, props, styleUtils);
+  });
+});
+
 describe("<BaseButton />", () => {
   const testId = "base-button";
 
@@ -115,5 +134,23 @@ describe("<BaseButton />", () => {
     const styleUtils = [resizer];
 
     testStyles(testId, BaseButton, props, styleUtils);
+  });
+});
+
+describe("<BaseForm />", () => {
+  const testId = "base-form";
+
+  it("loads and displays any content", () => {
+    const formContent = "Base Form";
+    const match = new RegExp(`^${formContent}$`);
+
+    testRenderization(testId, BaseForm, formContent, match);
+  });
+
+  it("check if element style props is working", () => {
+    const props = flexAttrs as TFlexAttrsProps;
+    const styleUtils = [resizer, spacer, flexbox];
+
+    testStyles(testId, BaseForm, props, styleUtils);
   });
 });
