@@ -1,6 +1,8 @@
 import { AnimatedDiv, AnimatedSpan, AnimatedBox } from "@/components/Animated";
 import { IAnimationProps } from "@/utils/animate";
+
 import { testAnimation } from "__tests__/config/testUtils";
+
 import * as Animations from "@/styles/Animations";
 
 const animationProps = {
