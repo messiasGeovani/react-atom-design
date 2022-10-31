@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import dynamic from 'next/dynamic';
 
 import { Dropzone } from "@components/molecules";
 

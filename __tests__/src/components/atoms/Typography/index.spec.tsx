@@ -1,19 +1,14 @@
-import React from "react";
+import { Typography } from "@/components/atoms";
 import "@testing-library/jest-dom";
-
-import { render, screen } from "../../../../config";
-
-import { Typography } from "@components/atoms";
-
-const setup = ({ text }: any) => render(<Typography>{text}</Typography>);
+import { testRenderization } from "__tests__/config/testUtils";
 
 describe("<Typography />", () => {
+  const testId = "typography";
+
   it("loads and displays any text", async () => {
     const text = "Typography";
     const match = new RegExp(`^${text}$`);
 
-    setup({ text });
-
-    expect(screen.getByText(match)).toBeInTheDocument();
+    testRenderization(testId, Typography, text, match);
   });
 });

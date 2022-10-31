@@ -6,7 +6,6 @@ import { IFlexboxProps } from "@/utils/flexbox";
 import { IFontProps } from "@/utils/fonts";
 import { IResizerProps } from "@/utils/resizer";
 import { ISpacerProps } from "@/utils/spacer";
-import Image from "next/image";
 
 export type TDefaultAttrsProps = ISpacerProps & IResizerProps;
 export type TFlexAttrsProps = TDefaultAttrsProps & IFlexboxProps;

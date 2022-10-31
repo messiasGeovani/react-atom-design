@@ -1,18 +1,18 @@
 const PRIMARY_COLOR = "var(--primary)";
 
-const flexbox = {
+const flexboxObj = {
   flex: true,
   column: true,
   alignItems: "center",
   justifyContent: "center",
 };
 
-const resizer = {
+const resizerObj = {
   fullWidth: true,
   fullHeight: true,
 };
 
-const spacer = {
+export const spacerObj = {
   margin: 1,
   mt: 1,
   mr: 1,
@@ -25,32 +25,32 @@ const spacer = {
   pl: 1,
 };
 
-const fontConfig = {
+const fontConfigObj = {
   fontWeight: 500,
   cursor: "pointer",
   textAlign: "center",
 };
 
-const colors = {
+export const colorsObj = {
   background: PRIMARY_COLOR,
   color: PRIMARY_COLOR,
   fill: PRIMARY_COLOR,
 };
 
 export const defaultAttrs = {
-  ...resizer,
-  ...spacer,
+  ...resizerObj,
+  ...spacerObj,
 };
 
 export const flexAttrs = {
   ...defaultAttrs,
-  ...flexbox,
+  ...flexboxObj,
 };
 
 export const textAttrs = {
   ...defaultAttrs,
-  ...fontConfig,
-  ...colors,
+  ...fontConfigObj,
+  ...colorsObj,
 };
 
-export const imgAttrs = spacer;
+export const imgAttrs = spacerObj;

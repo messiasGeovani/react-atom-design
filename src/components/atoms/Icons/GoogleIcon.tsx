@@ -14,6 +14,7 @@ export function GoogleIcon({ size = 48, ...props }) {
       width={`${size}px`}
       height={`${size}px`}
       style={normalizedSpacingOptions}
+      {...props}
     >
       <path
         fill="#FFC107"
