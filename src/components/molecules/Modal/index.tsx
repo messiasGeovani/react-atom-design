@@ -5,11 +5,11 @@ import { AnimatedBox } from "@components/Animated";
 import { Background } from "./styles";
 
 interface IModalProps {
-  opened: boolean;
-  children: React.ReactNode | React.ReactElement | any;
+  opened?: boolean;
+  children?: React.ReactNode | React.ReactElement | any;
 }
 
-export function Modal({ opened = false, children }: IModalProps) {
+export function Modal({ opened = false, children, ...props }: IModalProps) {
 
   if (!opened) {
     return null;
@@ -23,6 +23,7 @@ export function Modal({ opened = false, children }: IModalProps) {
       duration={0.5}
       animation="fadeIn"
       fillMode="both"
+      {...props}
     >
       <AnimatedBox
         duration={1}
